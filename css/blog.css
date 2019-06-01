@@ -1,0 +1,56 @@
+
+#ProjectsLink, #break, #BlogLink{
+    font-size: 1.25vw;
+    font-family: 'Karla', sans-serif;
+    margin-top: 3%;
+}
+
+#ProjectsLink, #BlogLink{
+    transition: transform .3s;
+    color: black;
+    text-decoration-line: none;
+}
+
+#ProjectsLink:hover, #BlogLink:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    
+}
+
+#BlogLink{
+    font-weight: 900;
+}
+
+#OtherLinks {
+    padding-right: 2%;
+    position: fixed; 
+    bottom: 2%;
+    width:80%;
+}
+
+.fab{
+    color: inherit;
+    font-size: 2.5vw;
+    transition: transform .3s;
+}
+
+.fab:hover{
+    color: inherit;
+    font-size: 2.5vw;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.fas{
+    color: inherit;
+    font-size:2.5vw;
+    transition: transform .3s;
+}
+
+.fas:hover{
+    color: inherit;
+    font-size: 2.5vw;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+

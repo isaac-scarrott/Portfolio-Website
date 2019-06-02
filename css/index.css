@@ -2,9 +2,9 @@
     font-size: 7vw;
     font-family: 'Karla', sans-serif;
     letter-spacing: 0.8vw;
-    padding-top: 9%;
+    padding-top: 8%;
 }
 
-#ProjectsLink, #break, #BlogLink{
+#ProjectsLink, #break, #BlogLink, #AboutmeLink{
     margin-top: 7%;
 }

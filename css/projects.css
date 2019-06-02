@@ -8,3 +8,20 @@
 #ProjectsLink{
     font-weight: bold;
 }
+
+#FinalYearProject {
+    padding-top: 3%;
+}
+
+#language{
+    font-size: 5vw;
+    margin-top: 1%
+}
+
+#Name {
+    font-size: 1.5vw;
+}
+
+#description {
+    font-size: 1vw;
+}

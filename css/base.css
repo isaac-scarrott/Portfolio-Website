@@ -28,13 +28,13 @@ body{
     width: 75%;
 }
 
-.fab{
+.fab:not(#language){
     color: inherit;
     font-size: 2.5vw;
     transition: transform .3s;
 }
 
-.fab:hover{
+.fab:not(#language):hover{
     color: inherit;
     font-size: 2.5vw;
     transform: scale(1.3);

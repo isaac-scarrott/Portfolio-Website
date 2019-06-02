@@ -1,3 +1,5 @@
+
+
 #SmallTitle{
     font-size: 1vw;
     font-family: 'Karla', sans-serif;
@@ -7,4 +9,24 @@
 
 #AboutmeLink{
     font-weight: bold;
+}
+
+#profile {
+    width: 100%;
+    border-radius: 50%;
+    border: 4px solid black;
+}
+
+#Title{
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+#Body{
+    font-size: 1vw;
+    padding-top: 2%;
+}
+
+#main {
+    padding-top: 5%;
 }

@@ -9,3 +9,31 @@
     font-weight: bold;
 }
 
+#BlogEntryTitle, #BlogEntryBody {
+    font-family: 'Cutive Mono', monospace;
+}
+
+#BlogEntryTitle {
+    font-weight: bold;
+    margin-top: 1%;
+    padding-bottom: 0.4%;
+}
+
+#BlogEntryTitle .Title{
+    font-size: 1.2vw;
+}
+
+#BlogEntryTitle .Date{
+    font-size: 1vw;
+    margin-right: 20%;
+}
+
+#breaker {
+    height: 1px;
+    background-color: #c4c4c4;
+}
+
+#BlogEntryBody {
+    padding-top: 0.4%;
+    font-size: 0.9vw;
+}

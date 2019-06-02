@@ -1,8 +1,10 @@
+#SmallTitle{
+    font-size: 1vw;
+    font-family: 'Karla', sans-serif;
+    letter-spacing: 0.08vw;
+    padding-top: 1%;
+}
 
 #ProjectsLink{
     font-weight: bold;
-}
-
-#ProjectsLink, #break, #BlogLink{
-    margin-top: 3%;
 }

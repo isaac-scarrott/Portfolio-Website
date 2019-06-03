@@ -5,6 +5,7 @@
     font-family: 'Karla', sans-serif;
     letter-spacing: 0.08vw;
     padding-top: 1%;
+    padding-bottom: 0.5%;
 }
 
 #AboutmeLink{
@@ -18,15 +19,15 @@
 }
 
 #Title{
-    font-size: 1.5vw;
+    font-size: 2vw;
     font-weight: bold;
 }
 
 #Body{
-    font-size: 1vw;
+    font-size: 1.5vw;
     padding-top: 2%;
 }
 
 #main {
-    padding-top: 5%;
+    padding-top: 11%;
 }

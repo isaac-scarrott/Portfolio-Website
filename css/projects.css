@@ -3,6 +3,7 @@
     font-family: 'Karla', sans-serif;
     letter-spacing: 0.08vw;
     padding-top: 1%;
+    padding-bottom: 0.5%;
 }
 
 #ProjectsLink{
@@ -19,11 +20,13 @@
 }
 
 #Name {
-    font-size: 1.5vw;
+    font-size: 1.7vw;
+    font-weight: bold;
 }
 
 #description {
-    font-size: 0.8vw;
+    font-size: 1vw;
+    padding-top: 1%;
 }
 
 #ProjectLinks a{

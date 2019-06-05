@@ -30,22 +30,29 @@
       <div class="col">Isaac Scarrott</div>
     </div>
 
-    <!--Contains links to my projects and blog-->
-    <div class="row text-center" id="ProjectsBlogDiv">
-      <a class="col-sm-2 offset-sm-3" id="ProjectsLink" href="projects.html">Projects</a>
-      <div class="col-sm-0" id="break">|</div>
-      <a class="col-sm-2" id="BlogLink" href="blog.html">Blog</a>
-      <div class="col-sm-0" id="break">|</div>
-      <a class="col-sm-2" id="AboutmeLink" href="AboutMe.html">About Me</a>
-    </div>
+    <nav class="navbar-expand-lg text-center">
+      <button class="navbar-toggler"  id="navtog" data-toggle="collapse" data-target="#ProjectsBlogDiv">
+        <i class="fas fa-chevron-down"></i>
+        
+      </button>
 
-    <div class="row" id="main">
-      <div class="col-sm-2 offset-sm-2">
-          <img class="" src="img/profileBW.jpg" alt="Isaac Scarrott" id="profile">
+      <!--Contains links to my projects and blog-->
+      <div class="row text-center collapse navbar-collapse" id="ProjectsBlogDiv">
+        <a class="col-lg-2 col-md-12 offset-lg-3" id="ProjectsLink" href="projects.html">Projects</a>
+        <div class="col-lg-0" id="break">|</div>
+        <a class="col-lg-2 col-md-12" id="BlogLink" href="blog.html">Blog</a>
+        <div class="col-lg-0" id="break">|</div>
+        <a class="col-lg-2 col-md-12" id="AboutmeLink" href="AboutMe.html">About Me</a>
       </div>
-      <div class="col-sm-6 my-auto">
+    </nav>
+    <div class="row text-md-center" id="main">
+      <div class="col-lg-2 offset-sm-12 ">
+        <img class="" src="img/profileBW.jpg" alt="Isaac Scarrott" id="profile">
+      </div>
+      <div class="col-lg-6 col-md-8 offset-md-2 my-auto">
         <div id="Title">Isaac Scarrott, 20</div>
-      <div id="Body">University of Lincoln Computer Science graduate currently working as a junior software engineer for Bytron Aviation Systems. Keen software engineer and aspiring data scientist.</div>
+        <div id="Body">University of Lincoln Computer Science graduate currently working as a junior software engineer
+          for Bytron Aviation Systems. Keen software engineer and aspiring data scientist.</div>
       </div>
     </div>
 
@@ -61,7 +68,7 @@
   </div>
 
   <!--Load in the relevant javascript files-->
-  <script src="js/scripts.js"></script>
+  
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -72,7 +79,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/6c69ef72dd.js"></script>
-
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>

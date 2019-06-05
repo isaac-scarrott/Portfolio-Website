@@ -3,7 +3,7 @@ body{
     transition: opacity 1s;
     -webkit-transition: opacity 1s; /* Safari */
     font-family: 'Karla', sans-serif;
-
+    
 }
 
 #ProjectsLink, #break, #BlogLink, #AboutmeLink{
@@ -54,3 +54,34 @@ body{
     cursor: pointer;
 }
 
+#navtog{
+    font-size: 7vw;
+    transform-style: preserve-3d;
+    transition: all 0.4s linear;
+}
+
+
+#navtog i {
+    font-size: 7vw;
+}
+
+@media screen and (max-width: 990px) {
+    #SmallTitle div{
+        font-size: 12vw;
+    }
+    
+    #ProjectsBlogDiv div {
+        opacity: 0;
+      }
+    
+      #ProjectsBlogDiv a {
+        font-size: 5vw;
+      }
+
+    #OtherLinks a{
+        font-size: 8vw!important;
+    }
+    #OtherLinks{
+        width: 100%;
+    }
+}

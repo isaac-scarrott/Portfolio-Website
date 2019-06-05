@@ -31,3 +31,25 @@
 #main {
     padding-top: 11%;
 }
+
+.icon-bar {
+    background: black;
+}
+
+@media screen and (max-width: 990px) {
+    #profile {
+        width: 40%;
+    }
+    #main {
+        padding-top: 5%;
+    }
+    #Title{
+        font-size: 7vw;
+        padding-top: 30%;
+    }
+    
+    #Body{
+        font-size: 2vh;
+        padding-top: 5%;
+    }
+}

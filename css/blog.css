@@ -1,4 +1,8 @@
-#SmallTitle{
+body{
+    padding-bottom: 25%;
+}
+
+#SmallTitle {
     font-size: 1vw;
     font-family: 'Karla', sans-serif;
     letter-spacing: 0.08vw;
@@ -6,7 +10,7 @@
     padding-bottom: 0.5%;
 }
 
-#BlogLink{
+#BlogLink {
     font-weight: bold;
 }
 
@@ -20,12 +24,11 @@
     padding-bottom: 0.4%;
 }
 
-#BlogEntryTitle .Title{
+#BlogEntryTitle .Title {
     font-size: 1.4vw;
-
 }
 
-#BlogEntryTitle .Date{
+#BlogEntryTitle .Date {
     font-size: 1.2vw;
     margin-right: 20%;
     margin-top: 0.2%;
@@ -43,10 +46,10 @@
 }
 
 @media screen and (max-width: 990px) {
-    #BlogEntryTitle .Title{
+    #BlogEntryTitle .Title {
         font-size: 4vw;
     }
-    #BlogEntryTitle .Date{
+    #BlogEntryTitle .Date {
         display: none;
     }
     #BlogEntryBody {
@@ -54,5 +57,7 @@
     }
     #breaker {
         height: 3px;
-  }
+    }
+
 }
+

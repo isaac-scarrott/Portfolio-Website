@@ -30,32 +30,41 @@
       <div class="col">Isaac Scarrott</div>
     </div>
 
-    <!--Contains links to my projects and blog-->
-    <div class="row text-center" id="ProjectsBlogDiv">
-      <a class="col-lg-2 offset-lg-3" id="ProjectsLink" href="projects.html">Projects</a>
-      <div class="col-lg-0" id="break">|</div>
-      <a class="col-lg-2" id="BlogLink" href="blog.html">Blog</a>
-      <div class="col-lg-0" id="break">|</div>
-      <a class="col-lg-2" id="AboutmeLink" href="AboutMe.html">About Me</a>
-    </div>
+    <nav class="navbar-expand-lg text-center">
+      <button class="navbar-toggler"  id="navtog" data-toggle="collapse" data-target="#ProjectsBlogDiv">
+        <i class="fas fa-chevron-down"></i>
+        
+      </button>
+
+      <!--Contains links to my projects and blog-->
+      <div class="row text-center collapse navbar-collapse" id="ProjectsBlogDiv">
+        <a class="col-lg-2 col-md-12 offset-lg-3" id="ProjectsLink" href="projects.html">Projects</a>
+        <div class="col-lg-0" id="break">|</div>
+        <a class="col-lg-2 col-md-12" id="BlogLink" href="blog.html">Blog</a>
+        <div class="col-lg-0" id="break">|</div>
+        <a class="col-lg-2 col-md-12" id="AboutmeLink" href="AboutMe.html">About Me</a>
+      </div>
+    </nav>
 
 
 
-    <div class="row text-left" id="FinalYearProject">
+    <div class="row text-lg-left" id="FinalYearProject">
       <i class="col-lg-1 offset-lg-2 fab fa-python" id="language"></i>
-      <div class="col-lg-6">
-        <div class="row" id="Name">Deep Learning to Analyse the Sentiment of Tweets</div>
-        <div class="row" id="description">Final Year University Project where I compared a multi layer perceptron,
+      <div class="col-lg-6  col-md-12">
+        <div class="row offset-md-1 col-md-10 text-md-center" id="name">Deep Learning to Analyse the Sentiment Of Tweets </div>
+        <div class="row"><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1" id="breaker"></div></div>
+        <div class="row " id="description">Final Year University Project where I compared a multi layer perceptron,
           convolutional neural network and a recurrent neural network's performance at performing sentiment analysis on
           tweets. This model was then implemented into a basic web application where the user can analsye the sentiment of trends on twitter </div>
       </div>
-      <div class="col-lg-1 text-center" id = "ProjectLinks">
-        <div class="row">
+
+      <div class="row text-center" id = "ProjectLinks">
+        <div class="col-lg-0 col-md-2 offset-md-3 offset-sm-4">
           <a href="#" class="fas fa-desktop" id="NotLive"></a>
         </div>
-        <dib class="row">
+        <div class="col-lg-12 col-md-2">
           <a href="https://github.com/isaac-scarrott/Project" target="_blank" rel="noopener noreferrer" class="fab fa-github-square" id="ProjectGit"></a>
-        </dib>
+        </div>
       </div>
     </div>
 
@@ -76,7 +85,7 @@
   </div>
 
   <!--Load in the relevant javascript files-->
-  <script src="js/scripts.js"></script>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -87,7 +96,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/6c69ef72dd.js"></script>
-
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>

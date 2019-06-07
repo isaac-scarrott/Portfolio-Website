@@ -19,9 +19,11 @@
     margin-top: 1%
 }
 
-#Name {
+#name {
     font-size: 1.7vw;
     font-weight: bold;
+    padding-left: 0px;
+
 }
 
 #description {
@@ -31,11 +33,52 @@
 
 #ProjectLinks a{
     margin-top: 13%;
-    margin-left: 30%;
 }
 
 #ProjectGit {
-    margin-left: 34%!important;
     color: black;
     text-decoration-line: none;
+    margin-top: 50%!important;
 } 
+
+#breaker {
+    display:none;
+}
+
+@media screen and (max-width: 990px) {
+    #language {
+        display: none;
+    }
+
+    #name {
+        font-size: 4vw;
+    }
+    #description {
+        font-size: 3vw;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    #ProjectLinks a{
+        margin-top: 0;
+        margin-left: 0;
+
+
+    }
+    #ProjectLinks{
+        width: 100%;
+    }
+
+    #ProjectLinks{
+        display: none;
+    }
+    
+    #ProjectGit {
+        margin-left: 0!important;
+        margin-top: 0!important;
+    } 
+    #breaker {
+        height: 3px;
+        background-color: #c4c4c4;
+        display: block;
+    }
+  }

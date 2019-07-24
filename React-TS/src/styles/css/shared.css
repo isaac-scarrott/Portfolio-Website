@@ -13,7 +13,11 @@
   padding-top: 9%;
   font-family: 'Karla', sans-serif;
   font-size: 1.7vw;
-  text-align: center; }
+  text-align: center;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease; }
   #navBar * {
     display: inline-block; }
   #navBar a {

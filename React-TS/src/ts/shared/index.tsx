@@ -1,32 +1,32 @@
 // TODO: shrink by function ot save code maybe?
 
-import React, { Component, PureComponent, Fragment, useEffect } from 'react'
+import React, { createContext, Fragment, useEffect, useState, useContext } from 'react'
 import ReactDOM from 'react-dom'
 
-class Index extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentPage: 'home'
-        }
-    }
+const pages = createContext('home')
 
-    render() {
-        return (
-            <Fragment>
-                <IsaacScarrottTitle
-                    currentPage={this.state.currentPage}
-                />
+function Index() {
+    const [currentPage, setcurrentPage] = useState('home')
+
+    return (
+        <Fragment>
+            <IsaacScarrottTitle
+                currentPage={currentPage}
+            />
+            <pages.Provider value={[currentPage, setcurrentPage]}>
                 <NavBar />
-                <SocialBar />
-            </Fragment>
-        )
-    }
+            </pages.Provider>
+            <SocialBar />
+        </Fragment>
+    )
 }
 
 function IsaacScarrottTitle(props) {
     useEffect(() => {
-        if (props.currentPage !== 'home') document.getElementById('isaacScarrottTitle').style.fontSize = '1vw';
+        if (props.currentPage !== 'home') {
+            document.getElementById('isaacScarrottTitle').style.cssText = 'font-size: 1vw; padding-top: 1%; letter-spacing: 0.08vw;'
+            document.getElementById('navBar').style.cssText = 'font-size: 1.7vw; padding-top: 1%;'
+        }
     })
 
     return (
@@ -34,48 +34,34 @@ function IsaacScarrottTitle(props) {
     )
 }
 
-function NavBar(props) {
-    // useEffect(() => {
-    //     if (props.currentPage !== 'home') document.getElementById('navbar').style.fontSize = '4vw';
-    // })
+function NavBar() {
+    const [currentPage, setcurrentPage] = useContext(pages);
 
     return (
         <nav id='navBar'>
-            <NavBarButton
-                text='Projects'
-            />
+            <a onClick={() => setcurrentPage('projects')}>Projects</a>
             <div id='navBreaker'> | </div>
-            <NavBarButton
-                text='Blog'
-            />
+            <a onClick={() => setcurrentPage('blog')}>Blog</a>
             <div id='navBreaker'> | </div>
-            <NavBarButton
-                text='About Me'
-            />
+            <a onClick={() => setcurrentPage('aboutme')}>About Me</a>
         </nav>
-    )
-}
-
-function NavBarButton(props) {
-    return (
-        <a>{props.text}</a>
     )
 }
 
 function SocialBar() {
     return (
         <nav id='socialBar'>
-            <SocialBarButton 
-            iconClassName = 'fab fa-linkedin'
-            link = 'https://www.linkedin.com/in/isaac-scarrott/'
+            <SocialBarButton
+                iconClassName='fab fa-linkedin'
+                link='https://www.linkedin.com/in/isaac-scarrott/'
             />
-            <SocialBarButton 
-            iconClassName = 'fab fa-github'
-            link = 'https://github.com/isaac-scarrott'
+            <SocialBarButton
+                iconClassName='fab fa-github'
+                link='https://github.com/isaac-scarrott'
             />
-            <SocialBarButton 
-            iconClassName = 'fas fa-address-book'
-            link = 'http://isaacscarrott.co.uk/Isaac%20Scarrott%20CV.pdf'
+            <SocialBarButton
+                iconClassName='fas fa-address-book'
+                link='http://isaacscarrott.co.uk/Isaac%20Scarrott%20CV.pdf'
             />
         </nav>
     )
@@ -83,7 +69,7 @@ function SocialBar() {
 
 function SocialBarButton(props) {
     return (
-        <a href={props.link} target="_blank" rel="noopener noreferrer" class={props.iconClassName}></a>
+        <a href={props.link} target="_blank" rel="noopener noreferrer" className={props.iconClassName}></a>
     )
 }
 

@@ -1,19 +1,29 @@
+body {
+  font-family: "Karla", sans-serif;
+  margin-bottom: 8%; }
+  body #fade {
+    width: 100%;
+    height: 20%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(transparent 0%, white 75%); }
+
 #isaacScarrottTitle {
   font-size: 7vw;
-  font-family: 'Karla', sans-serif;
   letter-spacing: 0.8vw;
   text-align: center;
-  padding-top: 8%;
+  padding-top: 9%;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease; }
 
 #navBar {
-  padding-top: 9%;
-  font-family: 'Karla', sans-serif;
+  padding-top: 8%;
   font-size: 1.7vw;
   text-align: center;
+  padding-bottom: 3%;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -31,20 +41,81 @@
     margin: 0px 6vw 0px; }
 
 #socialBar {
-  font-size: 2.5vw;
+  z-index: 1;
   width: 100%;
   text-align: center;
   position: fixed;
   bottom: 1%; }
   #socialBar * {
-    text-decoration: none;
-    color: black;
-    -webkit-transition: transform 0.3s;
-    -moz-transition: transform 0.3s;
-    transition: transform 0.3s;
     display: inline-block; }
-    #socialBar *:hover {
-      transform: scale(1.3);
-      cursor: pointer; }
   #socialBar .fa-github {
     margin: 0 15% 0; }
+
+.afb {
+  font-size: 2.5vw;
+  text-decoration: none;
+  color: black;
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  transition: transform 0.3s; }
+  .afb:hover {
+    transform: scale(1.3);
+    cursor: pointer; }
+
+.project {
+  width: 80%;
+  margin: 0 10% 0; }
+  .project .textAndButtons {
+    display: flex; }
+    .project .textAndButtons .text,
+    .project .textAndButtons .buttons {
+      display: inline-block; }
+    .project .textAndButtons .text {
+      width: 85%; }
+      .project .textAndButtons .text .title {
+        font-weight: 900;
+        font-size: 2vw;
+        padding-bottom: 1%; }
+      .project .textAndButtons .text .body {
+        font-size: 1.4svw; }
+    .project .textAndButtons .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 15%; }
+      .project .textAndButtons .buttons a {
+        justify-content: space-evenly;
+        display: flex; }
+  .project .skills {
+    padding-top: 1%;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-evenly;
+    cursor: default; }
+    .project .skills div {
+      border: 1px solid;
+      padding: 7px 13px;
+      line-height: 0.8em;
+      border-radius: 5px; }
+
+.projectBreaker {
+  width: 80%;
+  margin: 1% 10%; }
+
+.blog {
+  font-family: 'Cutive Mono', monospace;
+  width: 80%; }
+  .blog .title, .blog .body {
+    margin-left: 10%; }
+  .blog .title, .blog .date {
+    display: inline-block;
+    font-weight: 600; }
+  .blog .date {
+    float: right; }
+  .blog .blogBreaker {
+    width: 90%;
+    margin-left: 10%; }
+  .blog .body {
+    font-size: 0.85vw;
+    font-weight: lighter;
+    padding-bottom: 4%; }

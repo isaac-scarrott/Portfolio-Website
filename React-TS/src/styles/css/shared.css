@@ -1,6 +1,7 @@
 body {
   font-family: "Karla", sans-serif;
-  margin-bottom: 8%; }
+  height: 100%;
+  margin: 0; }
   body #fade {
     width: 100%;
     height: 20%;
@@ -8,6 +9,9 @@ body {
     left: 0;
     bottom: 0;
     background: linear-gradient(transparent 0%, white 75%); }
+
+html, #app-root {
+  height: 100%; }
 
 #isaacScarrottTitle {
   font-size: 7vw;
@@ -38,7 +42,7 @@ body {
       transform: scale(1.3);
       cursor: pointer; }
   #navBar #navBreaker {
-    margin: 0px 6vw 0px; }
+    margin: 0 6vw 0; }
 
 #socialBar {
   z-index: 1;
@@ -119,3 +123,27 @@ body {
     font-size: 0.85vw;
     font-weight: lighter;
     padding-bottom: 4%; }
+
+#aboutMe {
+  margin-left: 10%;
+  width: 80%;
+  height: 70%;
+  display: flex; }
+  #aboutMe #tabBar {
+    min-width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; }
+  #aboutMe .profile {
+    display: flex;
+    align-items: center;
+    width: 75%; }
+    #aboutMe .profile #image {
+      height: 50%;
+      border-radius: 50%; }
+    #aboutMe .profile #body {
+      padding-left: 5%; }
+      #aboutMe .profile #body #nameAge {
+        font-weight: 900;
+        font-size: 2vw;
+        padding-bottom: 2%; }

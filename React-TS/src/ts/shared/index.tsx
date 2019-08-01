@@ -4,12 +4,12 @@
 import React, { createContext, Fragment, useEffect, useState, useContext } from 'react'
 import ReactDOM from 'react-dom'
 
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 const pages = createContext('home')
-const profileTab = createContext('profile')
 
 function Index() {
     const [currentPage, setcurrentPage] = useState('home')
-
     return (
         <Fragment>
             <IsaacScarrottTitle
@@ -174,29 +174,26 @@ function Blog(props) {
 /*---------------------------------------------------ABOUT-ME---------------------------------------------------*/
 
 function AboutMe(props) {
-
-    const [currentTab, setCurrentTab] = useState('profile');
-
     return (
         <div id='aboutMe'>
             <div id='tabBar'>
-                <a onClick={() => setCurrentTab('profile')}>Profile</a>
-                <a onClick={() => setCurrentTab('experience')}>Experience & Education</a>
-                <a onClick={() => setCurrentTab('skills')}>Skills</a>
-                <a onClick={() => setCurrentTab('certificates')}>Awards & Certificates</a>
+                <Link  activeClass="active" className="test1" to="profile1" spy={true} smooth={true} duration={600} containerId="container" isDynamic={true} offset={-200}> Profile</Link>
+                <Link  activeClass="active" className="test1" to="profile2" spy={true} smooth={true} duration={500} containerId="container" isDynamic={true}> Experience & Education</Link>
+                <Link  activeClass="active" className="test1" to="skills" spy={true} smooth={true} duration={500} containerId="container" isDynamic={true}> Skills</Link>
+                <Link  activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500} containerId="container" isDynamic={true}> Awards & Certificates</Link>
             </div>
 
-            {(currentTab === 'profile') && <Profile />}
-
-            {/* {(currentTab === 'experience') && <Expe />}
-
-            {(currentTab === 'education') && <Projects />}
-
-            {(currentTab === 'skills') && <Projects />}
-
-            {(currentTab === 'certificates') && <Projects />} */}
-
-
+            <div id='container'>
+                <Element name="profile1" class='profile'>
+                    <Profile />
+                </Element>
+                <Element name="profile2" class='profile'>
+                    <Profile />
+                </Element>
+                <Element name="skills" class='skills'>
+                    <Skills />
+                </Element>
+            </div>
 
 
 
@@ -207,13 +204,29 @@ function AboutMe(props) {
 
 function Profile(props) {
     return (
-        <div class='profile'>
-            <img src="img/profileBW.jpg" alt="Isaac Scarrott" id="image" title="" ></img>
-            <div id='body'>
-                <div id='nameAge'>Isaac Scarrott, 20</div>
-                <div id='bio'>University of Lincoln Computer Science graduate currently working as a junior software engineer for Bytron Aviation Systems. Keen software engineer and aspiring data scientist.</div>
-            </div>
+        <Fragment>
+        <img src="img/profileBW.jpg" alt="Isaac Scarrott" id="image" title="" ></img>
+        <div id='body'>
+            <div id='nameAge'>Isaac Scarrott, 20</div>
+            <div id='bio'>University of Lincoln Computer Science graduate currently working as a junior software engineer for Bytron Aviation Systems. Keen software engineer and aspiring data scientist.</div>
         </div>
+        </Fragment>
+    )
+}
+
+function Skills(props) {
+    return (
+        <Fragment>
+            <div id='languages'>
+                <div className='title'>Languages</div>
+            </div>
+            <div id='technologies'>
+                <div className='title'>Technologies</div>
+            </div>
+            <div id='otherSkills'>
+                <div className='title'>Other Skills</div>
+            </div>
+        </Fragment>
     )
 }
 

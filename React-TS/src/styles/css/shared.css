@@ -10,7 +10,8 @@ body {
     bottom: 0;
     background: linear-gradient(transparent 0%, white 75%); }
 
-html, #app-root {
+html,
+#app-root {
   height: 100%; }
 
 #isaacScarrottTitle {
@@ -109,9 +110,11 @@ html, #app-root {
 .blog {
   font-family: 'Cutive Mono', monospace;
   width: 80%; }
-  .blog .title, .blog .body {
+  .blog .title,
+  .blog .body {
     margin-left: 10%; }
-  .blog .title, .blog .date {
+  .blog .title,
+  .blog .date {
     display: inline-block;
     font-weight: 600; }
   .blog .date {
@@ -127,23 +130,41 @@ html, #app-root {
 #aboutMe {
   margin-left: 10%;
   width: 80%;
-  height: 70%;
+  height: 80%;
   display: flex; }
   #aboutMe #tabBar {
     min-width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly; }
-  #aboutMe .profile {
-    display: flex;
-    align-items: center;
-    width: 75%; }
-    #aboutMe .profile #image {
-      height: 50%;
-      border-radius: 50%; }
-    #aboutMe .profile #body {
-      padding-left: 5%; }
-      #aboutMe .profile #body #nameAge {
-        font-weight: 900;
-        font-size: 2vw;
-        padding-bottom: 2%; }
+  #aboutMe #container {
+    overflow: auto; }
+    #aboutMe #container::-webkit-scrollbar {
+      width: 0 !important; }
+    #aboutMe #container .profile, #aboutMe #container .skills {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%; }
+      #aboutMe #container .profile #image, #aboutMe #container .skills #image {
+        height: 50%;
+        border-radius: 50%; }
+      #aboutMe #container .profile #body, #aboutMe #container .skills #body {
+        padding-left: 5%; }
+        #aboutMe #container .profile #body #nameAge, #aboutMe #container .skills #body #nameAge {
+          font-weight: 900;
+          font-size: 2vw;
+          padding-bottom: 2%; }
+    #aboutMe #container .skills {
+      justify-content: space-between; }
+      #aboutMe #container .skills #languages,
+      #aboutMe #container .skills #technologies,
+      #aboutMe #container .skills #otherSkills {
+        flex-basis: 25%;
+        height: 90%;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        border: 2px solid black;
+        text-align: center;
+        font-size: 20px; }

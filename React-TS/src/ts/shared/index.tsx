@@ -1,10 +1,8 @@
 // TODO:    Shrink by function to save code maybe?
 //          Get rid of provier
 
-import React, { createContext, Fragment, useEffect, useState, useContext } from 'react'
+import React, { createContext, Fragment, useEffect, useState, useContext, useRef } from 'react'
 import ReactDOM from 'react-dom'
-
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 const pages = createContext('home')
 
@@ -174,59 +172,84 @@ function Blog(props) {
 /*---------------------------------------------------ABOUT-ME---------------------------------------------------*/
 
 function AboutMe(props) {
+    const refs = {
+        container: useRef(null),
+        profile1: useRef(null),
+        profile2: useRef(null),
+        skills: useRef(null),
+    };
+
+    const scrollToComponent = (inputRef) => {
+    inputRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    })
+  };
+
     return (
         <div id='aboutMe'>
             <div id='tabBar'>
-                <Link  activeClass="active" className="test1" to="profile1" spy={true} smooth={true} duration={600} containerId="container" isDynamic={true} offset={-200}> Profile</Link>
-                <Link  activeClass="active" className="test1" to="profile2" spy={true} smooth={true} duration={500} containerId="container" isDynamic={true}> Experience & Education</Link>
-                <Link  activeClass="active" className="test1" to="skills" spy={true} smooth={true} duration={500} containerId="container" isDynamic={true}> Skills</Link>
-                <Link  activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500} containerId="container" isDynamic={true}> Awards & Certificates</Link>
+                <a onClick={() => scrollToComponent(refs.profile1)}> Profile</a>
+                <a onClick={() => scrollToComponent(refs.profile1)}> Experience & Education</a>
+                <a onClick={() => scrollToComponent(refs.skills)}> Skills</a>
+                <a> Awards & Certificates</a>
             </div>
 
-            <div id='container'>
-                <Element name="profile1" class='profile'>
-                    <Profile />
-                </Element>
-                <Element name="profile2" class='profile'>
-                    <Profile />
-                </Element>
-                <Element name="skills" class='skills'>
-                    <Skills />
-                </Element>
+            <div id='container' ref={refs.container}>
+                    <Profile thisRef={refs.profile1}/>
+                    <Profile thisRef={refs.profile2}/>
+                    <Skills thisRef={refs.skills}/>
             </div>
-
-
-
-
         </div>
     )
 }
 
 function Profile(props) {
     return (
-        <Fragment>
-        <img src="img/profileBW.jpg" alt="Isaac Scarrott" id="image" title="" ></img>
-        <div id='body'>
-            <div id='nameAge'>Isaac Scarrott, 20</div>
-            <div id='bio'>University of Lincoln Computer Science graduate currently working as a junior software engineer for Bytron Aviation Systems. Keen software engineer and aspiring data scientist.</div>
+        <div className='profile' ref={props.thisRef}>
+            <img src="img/profileBW.jpg" alt="Isaac Scarrott" id="image" title="" ></img>
+            <div id='body'>
+                <div id='nameAge'>Isaac Scarrott, 20</div>
+                <div id='bio'>University of Lincoln Computer Science graduate currently working as a junior software engineer for Bytron Aviation Systems. Keen software engineer and aspiring data scientist.</div>
+            </div>
         </div>
-        </Fragment>
     )
 }
 
 function Skills(props) {
     return (
-        <Fragment>
+        <div className='skills' ref={props.thisRef}>
             <div id='languages'>
                 <div className='title'>Languages</div>
+                <ul className='skillsList'>
+                    <li>Python (3.7)</li>
+                    <li>Javascript (ES6)</li>
+                    <li>HTML5 | CSS3</li>
+                    <li>PHP (7.2)</li>
+                    <li>C++</li>
+                </ul>
             </div>
             <div id='technologies'>
                 <div className='title'>Technologies</div>
+                <ul className='skillsList'>
+                    <li>React (JS)</li>
+                    <li>Node (JS)</li>
+                    <li>Pandas (Python)</li>
+                    <li>Numpy (Python)</li>
+                    <li>Keras (Python)</li>
+                </ul>
             </div>
             <div id='otherSkills'>
                 <div className='title'>Other Skills</div>
+                <ul className='skillsList'>
+                    <li>Unix</li>
+                    <li>Git</li>
+                    <li>Agile Software Development</li>
+                    <li>Oracle</li>
+                    <li>MySQL</li>
+                </ul>
             </div>
-        </Fragment>
+        </div>
     )
 }
 

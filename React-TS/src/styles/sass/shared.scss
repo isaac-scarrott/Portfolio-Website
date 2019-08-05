@@ -154,7 +154,7 @@ html,
 
 .blog {
   font-family: 'Cutive Mono', monospace;
-  width: 80%;
+  width: 90%;
 
   .title,
   .body {
@@ -239,7 +239,15 @@ html,
         border-radius: 10px;
         border: 2px solid black;
         text-align: center;
-        font-size: 20px;
+      }
+
+      .skillsList {
+        padding-left: 0;
+
+        li {
+          width: 100%;
+          list-style-type: none;
+        }
       }
     }
   }

@@ -109,7 +109,7 @@ html,
 
 .blog {
   font-family: 'Cutive Mono', monospace;
-  width: 80%; }
+  width: 90%; }
   .blog .title,
   .blog .body {
     margin-left: 10%; }
@@ -166,5 +166,9 @@ html,
         -webkit-border-radius: 10px;
         border-radius: 10px;
         border: 2px solid black;
-        text-align: center;
-        font-size: 20px; }
+        text-align: center; }
+      #aboutMe #container .skills .skillsList {
+        padding-left: 0; }
+        #aboutMe #container .skills .skillsList li {
+          width: 100%;
+          list-style-type: none; }

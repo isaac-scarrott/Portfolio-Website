@@ -1,0 +1,78 @@
+body, html {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #000017; }
+
+#navWindow {
+  position: absolute;
+  width: 40%;
+  height: 80%;
+  top: 10%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #000017;
+  font-weight: bolder;
+  font-size: 20px;
+  letter-spacing: 3px; }
+
+#frontPage {
+  height: 98vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fd153d; }
+  #frontPage #topBar {
+    font-weight: bold;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    width: 95%;
+    height: 10vh;
+    align-items: center; }
+    #frontPage #topBar #name {
+      text-align: center;
+      font-size: 25px;
+      text-align-last: justify;
+      /*letter spacing to fill div*/ }
+    #frontPage #topBar #hamburger {
+      display: flex;
+      font-size: 35px;
+      height: 9vh;
+      width: 9vh;
+      justify-content: center;
+      align-items: center; }
+      #frontPage #topBar #hamburger #circle {
+        width: 0;
+        height: 0;
+        position: fixed;
+        background: #fd153d;
+        border-radius: 100%;
+        transition: all .2s ease-in-out; }
+      #frontPage #topBar #hamburger #icon {
+        z-index: 4;
+        transition: all .4s ease-in-out;
+        cursor: pointer; }
+  #frontPage #shortDesc {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-weight: bolder; }
+    #frontPage #shortDesc #ds {
+      padding-top: 5%; }
+
+.animation:before {
+  transform: translateY(12px) rotate(135deg); }
+
+.animation:after {
+  transform: translateY(-12px) rotate(-135deg); }

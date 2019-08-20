@@ -8,8 +8,9 @@ export function VideoText() {
       </div>
 
       <div id='ds'>
+        <br></br>
         <div>D A T A</div>
-        <div>S C I E N C E</div>
+        <div>S C I E N T I S T</div>
       </div>
     </div>
   )

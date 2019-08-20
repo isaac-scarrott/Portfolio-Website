@@ -56,7 +56,7 @@ function moveText(names) {
   }, animationTime.lastName * 10 + 700);
 }
 
-export function setupFadeIn() {
+export function setupFadeInName() {
   const names = Array.from(document.getElementById('name').children);
 
   const firstNameLetters = Array.from(names[0].children);

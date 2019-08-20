@@ -1,31 +1,45 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import { TopBar } from './components/frontPage/topBar.tsx';
-import { VideoText } from './components/frontPage/videoText.tsx';
-import { NavWindow } from './components/navWindow.tsx';
-
-import { setupFadeIn } from './animations/name';
+import { NavWindow } from './components/navWindow';
+import { Loading } from './components/loading'
+import { FrontPage } from './components/frontPage/frontPage'
+import { Timeline } from './components/timeline/timeline'
 
 function Index() {
-    useEffect(() => {
-        setupFadeIn();
-    }, []);
+    const [navOpen, setNavOpen] = useState(null);
+    const [viewMore, setViewMore] = useState(false);
 
-    const [navOpen, setNavOpen] = useState(false);
+    function handlePageLoaded() {
+        setNavOpen(false);
+    }
+
     function handleNavToggle() {
         setNavOpen(!navOpen);
     }
 
+    function handleViewMore() {
+        setViewMore(true);
+        document.getElementById('unlockPageContainer').style.opacity = '0';
+    }
+
     return (
         <Fragment>
-            <div id='frontPage'>
-                <TopBar
-                    navOpen={navOpen}
-                    setNavOpen={handleNavToggle}
+            {(navOpen === null) &&
+                <Loading
+                    handlePageLoaded={handlePageLoaded}
                 />
-                <VideoText />
-            </div>
+            }
+            {(navOpen !== null) &&
+                <FrontPage
+                    navOpen={navOpen}
+                    handleNavToggle={handleNavToggle}
+                    handleViewMore={handleViewMore}
+                />
+            }
+            {(viewMore) &&
+                <Timeline />
+            }
 
             {(navOpen) && <NavWindow />}
         </Fragment>

@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 
 import { partiallyExpandedCircle, removeCircle, fullyExpandedCircle } from '../../animations/hamburgerCircle';
-import { reset, setupFadeIn } from '../../animations/name'
 
 const forenameArray = ['I', 'S', 'A', 'A', 'C']
 const surenameArray = ['S', 'C', 'A', 'R', 'R', 'O', 'T', 'T']
@@ -35,7 +34,7 @@ export function TopBar(props) {
     } else {
       (props.navOpen) ? fullyExpandedCircle() : partiallyExpandedCircle();
     }
-  })
+  }, [props.navOpen])
 
   return (
     <div id='topBar'>
@@ -53,7 +52,7 @@ export function TopBar(props) {
               removeCircle();
             }
           }}
-          onClick={props.setNavOpen}
+          onClick={props.handleNavToggle}
         ></i>
       </div>
     </div>

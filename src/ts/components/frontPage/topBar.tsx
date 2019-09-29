@@ -41,9 +41,8 @@ export function TopBar(props) {
       <Name />
       <div id='hamburger'>
         <div id='circle'></div>
-        <i
-          id='icon'
-          className="fas fa-bars"
+        <div
+          id="icon"
           onMouseEnter={partiallyExpandedCircle}
           onMouseLeave={() => {
             if (props.navOpen) {
@@ -53,7 +52,12 @@ export function TopBar(props) {
             }
           }}
           onClick={props.handleNavToggle}
-        ></i>
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
   )

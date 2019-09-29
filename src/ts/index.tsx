@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { NavWindow } from './components/navWindow';
 import { Loading } from './components/loading'
 import { FrontPage } from './components/frontPage/frontPage'
-import { Timeline } from './components/timeline/timeline'
+import { Profile } from './components/profile/profile'
 
 function Index() {
     const [navOpen, setNavOpen] = useState(null);
@@ -16,6 +16,7 @@ function Index() {
 
     function handleNavToggle() {
         setNavOpen(!navOpen);
+        document.getElementById('icon').classList.toggle('open');
     }
 
     function handleViewMore() {
@@ -38,9 +39,8 @@ function Index() {
                 />
             }
             {(viewMore) &&
-                <Timeline />
+                <Profile />
             }
-
             {(navOpen) && <NavWindow />}
         </Fragment>
     )

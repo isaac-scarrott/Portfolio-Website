@@ -8,7 +8,7 @@ import { FaHamburger, FaCode } from 'react-icons/fa';
 export function Timeline() {
   return (
     <>
-      <div id='timelineTitle'>Timeline</div>
+      <div className='timelineTitle'>Timeline</div>
       <VerticalTimeline>
         <VerticalTimelineElement
           contentStyle={{ background: '#14141c', color: 'white' }}

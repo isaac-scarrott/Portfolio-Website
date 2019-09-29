@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+//TODO: Add on clicks to this
+
+import React from 'react'
 
 export function NavWindow() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function VideoText() {
+export function FrontPageText() {
   return (
     <div id='shortDesc'>
       <div id='fsd'>

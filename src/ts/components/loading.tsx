@@ -1,17 +1,19 @@
+//TODO: Add a loading number or get rid of loading screen
+
 import React, { useEffect } from 'react'
 
-import { setupFadeIn } from '../animations/initial';
+import { setupFadeIn } from '../animations/InitalAnimations';
 
-export function Loading(props) {
+export function Loading({handlePageLoaded}) {
 
+  // When page mounts animations will go in on after another (TODO: research better way of doing this)
   useEffect(() => {
     document.getElementById('loadingBar').style.width = '90%'
     setTimeout(() => {
       document.getElementById('loadingScreen').classList.add('hidden');
     }, 1000);
     setTimeout(() => {
-
-      props.handlePageLoaded();
+      handlePageLoaded();
       setupFadeIn();
     }, 1500);
   }, []);

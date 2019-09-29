@@ -8,6 +8,10 @@ const rules = [{
     loader: "babel-loader"
   },
   {
+    test: /\.(png|svg|jpg|gif)$/,
+    use: ['file-loader'],
+  },
+  {
     test: /\.css$/,
     use: [{
         loader: MiniCssExtractPlugin.loader,

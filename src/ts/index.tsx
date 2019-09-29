@@ -1,10 +1,14 @@
+// TODO: Tidy up if statements
+
 import React, { Fragment, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import { NavWindow } from './components/navWindow';
 import { Loading } from './components/loading'
 import { FrontPage } from './components/frontPage/frontPage'
-import { Profile } from './components/profile/profile'
+import { Profile } from './components/Profile/Profile'
+import { TopBar } from './components/topBar/TopBar';
+
 
 function Index() {
     const [navOpen, setNavOpen] = useState(null);
@@ -31,13 +35,21 @@ function Index() {
                     handlePageLoaded={handlePageLoaded}
                 />
             }
+
             {(navOpen !== null) &&
-                <FrontPage
-                    navOpen={navOpen}
-                    handleNavToggle={handleNavToggle}
-                    handleViewMore={handleViewMore}
-                />
+                <>
+                    <TopBar
+                        navOpen={navOpen}
+                        handleNavToggle={handleNavToggle}
+                    />
+                    <FrontPage
+                        navOpen={navOpen}
+                        handleNavToggle={handleNavToggle}
+                        handleViewMore={handleViewMore}
+                    />
+                </>
             }
+
             {(viewMore) &&
                 <Profile />
             }

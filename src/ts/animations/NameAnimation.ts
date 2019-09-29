@@ -1,3 +1,5 @@
+// TODO: This could be some of the worst code I've written ... sort it out
+
 const animationTime = {
   firstName: 123,
   lastName: 70

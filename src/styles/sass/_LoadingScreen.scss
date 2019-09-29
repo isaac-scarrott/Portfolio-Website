@@ -1,0 +1,33 @@
+#loadingScreen {
+  display: inline-flex;
+  width: 98vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  color: #fd153d;
+
+  #loadingContainer {
+    width: 200px;
+    height: 40px;
+    border: 2px solid #fd153d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #loadingBar {
+      background: #fd153d;
+      width: 0;
+      height: 70%;
+      transition: 1s all ease;
+      flex: le
+    }
+  }
+
+  #loadingNumber {
+    width: 60px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

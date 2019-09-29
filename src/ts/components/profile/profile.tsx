@@ -1,5 +1,6 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import { Timeline } from '../Timeline';
+import React, { useEffect } from 'react';
+import { Timeline } from './Timeline';
+import { AboutMe } from './AboutMe'
 
 export function Profile() {
   useEffect(() => {
@@ -8,6 +9,7 @@ export function Profile() {
 
   return (
     <div id='profile'>
+      <AboutMe />
       <Timeline />
     </div >
   )

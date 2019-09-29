@@ -1,3 +1,5 @@
+// TODO: Try catch into if statement
+
 export function partiallyExpandedCircle() {
   document.getElementById('circle').style.cssText = 'width: inherit; height: inherit;';
   document.body.style.overflow = 'auto';
@@ -7,6 +9,7 @@ export function partiallyExpandedCircle() {
     document.getElementById('navWindow').style.opacity = '0';
   } catch { }
 }
+
 export function removeCircle() {
   document.getElementById('circle').style.cssText = 'width: 0; height: 0;';
   const hamburgerLines = document.getElementById('icon').childNodes;

@@ -1,10 +1,12 @@
 //TODO: Add a loading number or get rid of loading screen
 
 import React, { useEffect } from 'react'
+import {useSpring, animated} from 'react-spring'
 
 import { setupFadeIn } from '../animations/InitalAnimations';
 
 export function Loading({handlePageLoaded}) {
+  const spring = useSpring({ number: 100, from: { number: 0 } })
 
   // When page mounts animations will go in on after another (TODO: research better way of doing this)
   useEffect(() => {
@@ -22,7 +24,7 @@ export function Loading({handlePageLoaded}) {
     <div>
       <div id='loadingScreen'>
         <div id='loadingContainer'><div id='loadingBar'></div></div>
-        {/* <div id='loadingNumber'>100%</div> */}
+        <animated.span>{spring.number.interpolate(number => Math.floor(number))}</animated.span>%
       </div>
     </div>
   )

@@ -3,7 +3,8 @@ import React, { useEffect, useRef } from 'react'
 import { partiallyExpandedCircle, removeCircle, fullyExpandedCircle } from '../../animations/hamburgerCircle';
 
 export function Hamburger({navOpen, handleNavToggle}) {
-  const mounted = useRef();
+  const mounted: any = useRef();
+
   useEffect(() => {
     if (!mounted.current) {
       //TODO: Is this right? Find a better way to do this

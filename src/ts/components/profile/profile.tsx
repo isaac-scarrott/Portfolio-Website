@@ -9,9 +9,9 @@ export const Profile: React.FC = () => {
 
   return (
     <>
-      <AboutMe />
 
-      <Timeline />
+        <AboutMe />
+        <Timeline />
     </>
   )
 }

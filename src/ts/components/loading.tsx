@@ -16,7 +16,7 @@ export function Loading({handlePageLoaded}) {
     }, 1000);
     setTimeout(() => {
       handlePageLoaded();
-      setupFadeIn();
+    setupFadeIn();
     }, 1500);
   }, []);
 

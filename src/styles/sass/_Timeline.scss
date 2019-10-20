@@ -15,18 +15,22 @@
   align-items: center;
 }
 
-.vertical-timeline-element-content {
-  box-shadow: 0 3px 0 #15fdac !important;
-}
+.timelineContainer{
+  height: 90vh;
+  overflow-y: scroll;
+  .vertical-timeline-element-content {
+    box-shadow: 0 3px 0 #15fdac !important;
+  }
 
-.vertical-timeline-element-title {
-  color: #00ebac;
-}
+  .vertical-timeline-element-title {
+    color: #00ebac;
+  }
 
-.vertical-timeline-element-subtitle {
-  font-size: 15px;
-}
+  .vertical-timeline-element-subtitle {
+    font-size: 15px;
+  }
 
-.vertical-timeline-element-body {
-  font-size: 13px !important;
+  .vertical-timeline-element-body {
+    font-size: 13px !important;
+  }
 }

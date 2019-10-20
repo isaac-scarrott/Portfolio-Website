@@ -15,6 +15,14 @@ html {
   margin: 0;
 }
 
+#app-root{
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+#frontPage, #aboutMe, #timeline {
+  scroll-snap-align: start;
+}
 ::-webkit-scrollbar {
   display: none;
 }

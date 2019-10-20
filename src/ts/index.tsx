@@ -1,6 +1,6 @@
 // TODO: Tidy up if statements
 
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import { NavWindow } from './components/navWindow';
@@ -9,14 +9,16 @@ import { FrontPage } from './components/frontPage/frontPage'
 import { Profile } from './components/Profile/Profile'
 import { TopBar } from './components/topBar/TopBar';
 
+import {setupFadeInName} from './animations/NameAnimation'
+
 
 function Index() {
-    const [navOpen, setNavOpen] = useState(null);
+    const [navOpen, setNavOpen] = useState(false);
     const [viewMore, setViewMore] = useState(false);
 
-    function handlePageLoaded() {
-        setNavOpen(false);
-    }
+    useEffect(() => {
+        setupFadeInName();
+    }, [])
 
     function handleNavToggle() {
         setNavOpen(!navOpen);
@@ -30,25 +32,14 @@ function Index() {
 
     return (
         <Fragment>
-            {(navOpen === null) &&
-                <Loading
-                    handlePageLoaded={handlePageLoaded}
-                />
-            }
 
-            {(navOpen !== null) &&
-                <>
-                    <TopBar
-                        navOpen={navOpen}
-                        handleNavToggle={handleNavToggle}
-                    />
-                    <FrontPage
-                        navOpen={navOpen}
-                        handleNavToggle={handleNavToggle}
-                        handleViewMore={handleViewMore}
-                    />
-                </>
-            }
+                <TopBar
+                    navOpen={navOpen}
+                    handleNavToggle={handleNavToggle}
+                />
+                <FrontPage
+                    handleViewMore={handleViewMore}
+                />
 
             {(viewMore) &&
                 <Profile />

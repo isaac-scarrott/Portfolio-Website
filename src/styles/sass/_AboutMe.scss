@@ -20,7 +20,7 @@
 #aboutMeScroller {
   height: 90vh;
   overflow-y: scroll;
-  #aboutMeIntroduction, #bitmoji {
+  #aboutMeIntroduction, #aboutMeSkills {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -28,10 +28,32 @@
     color: white;
     width: 100%;
     height: 100%;
-    div:nth-child(1) {
+    .header {
       font-family: 'Cookie', cursive;
       font-size: 60px;
       margin-bottom: 50px;
+    }
+  }
+  #aboutMeSkills{
+    #skillsIconsContainer {
+      width: 80%;
+      display: inline-flex;
+      justify-content: space-between;
+      height: 50%;
+      align-items: center;
+
+      .skillItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 70%;
+        justify-content: space-around;
+
+        svg {
+          height: 100px;
+          width: 100px;
+        }
+      }
     }
   }
 }

@@ -5,7 +5,7 @@ import { FrontPageText } from './FrontPageText';
 
 export function FrontPage({handleViewMore}) {
   return (
-    <div id='frontPage'>
+      <>
       <FrontPageText />
 
       <Jump forever={true} delay={5000}>
@@ -14,6 +14,6 @@ export function FrontPage({handleViewMore}) {
           <i className="fas fa-chevron-down" id='unlockPageButton'></i>
         </div>
       </Jump>
-    </div>
+      </>
   )
 }

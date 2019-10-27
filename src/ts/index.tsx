@@ -31,21 +31,20 @@ function Index() {
     }
 
     return (
-        <Fragment>
-
-                <TopBar
-                    navOpen={navOpen}
-                    handleNavToggle={handleNavToggle}
-                />
-                <FrontPage
-                    handleViewMore={handleViewMore}
-                />
+        <>
+            <TopBar
+                navOpen={navOpen}
+                handleNavToggle={handleNavToggle}
+            />
+            <FrontPage
+                handleViewMore={handleViewMore}
+            />
 
             {(viewMore) &&
                 <Profile />
             }
             {(navOpen) && <NavWindow />}
-        </Fragment>
+        </>
     )
 }
 

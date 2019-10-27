@@ -9,7 +9,6 @@ export const Profile: React.FC = () => {
 
   return (
     <>
-
         <AboutMe />
         <Timeline />
     </>

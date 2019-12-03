@@ -1,0 +1,55 @@
+
+
+#SmallTitle{
+    font-size: 1vw;
+    font-family: 'Karla', sans-serif;
+    letter-spacing: 0.08vw;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
+}
+
+#AboutmeLink{
+    font-weight: bold;
+}
+
+#profile {
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid black;
+}
+
+#Title{
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+#Body{
+    font-size: 1.5vw;
+    padding-top: 2%;
+}
+
+#main {
+    padding-top: 11%;
+}
+
+.icon-bar {
+    background: black;
+}
+
+@media screen and (max-width: 990px) {
+    #profile {
+        width: 40%;
+    }
+    #main {
+        padding-top: 5%;
+    }
+    #Title{
+        font-size: 7vw;
+        padding-top: 30%;
+    }
+    
+    #Body{
+        font-size: 2vh;
+        padding-top: 5%;
+    }
+}

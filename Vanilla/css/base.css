@@ -1,0 +1,94 @@
+body{
+    opacity:0;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s; /* Safari */
+    font-family: 'Karla', sans-serif;
+}
+
+#ProjectsLink, #break, #BlogLink, #AboutmeLink{
+    font-size: 1.7vw;
+    font-family: 'Karla', sans-serif;
+}
+
+#ProjectsLink, #BlogLink, #AboutmeLink{
+    transition: transform .3s;
+    color: black;
+    text-decoration-line: none;
+}
+
+#ProjectsLink:hover, #BlogLink:hover, #AboutmeLink:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+#OtherLinks {
+    position: fixed; 
+    bottom: 2%;
+    width: 75%;
+}
+
+.fab:not(#language){
+    color: inherit;
+    font-size: 2.5vw;
+    transition: transform .3s;
+}
+
+.fab:not(#language):hover{
+    color: inherit;
+    font-size: 2.5vw;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.fas{
+    color: inherit;
+    font-size:2.5vw;
+    transition: transform .3s;
+}
+
+.fas:hover{
+    color: inherit;
+    font-size: 2.5vw;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#navtog{
+    font-size: 7vw;
+    transform-style: preserve-3d;
+    transition: all 0.4s linear;
+}
+
+
+#navtog i {
+    font-size: 7vw;
+}
+
+#bottom {
+    padding-top: 30%;
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    background: linear-gradient(transparent 0%, white 100%);
+}
+
+@media screen and (max-width: 990px) {
+    #SmallTitle div{
+        font-size: 12vw;
+    }
+    
+    #ProjectsBlogDiv div {
+        opacity: 0;
+      }
+    
+      #ProjectsBlogDiv a {
+        font-size: 5vw;
+      }
+
+    #OtherLinks a{
+        font-size: 8vw!important;
+    }
+    #OtherLinks{
+        width: 100%;
+    }
+}

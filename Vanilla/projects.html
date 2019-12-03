@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Isaac Scarrott - Projects</title>
+  <meta name="description" content="Isaac Scarrott's Portfolio">
+  <meta name="author" content="Isaac Scarrott">
+
+  <!--Load in the relevant style sheets-->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!--Load in the relevant fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141736194-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-141736194-1');
+  </script>
+</head>
+
+<body onload="document.body.style.opacity='1'">
+  <!--All of the body-->
+  <div class="container-fluid">
+
+    <!--Small name at the top of the page-->
+    <div class="row text-center" id="SmallTitle">
+      <div class="col">Isaac Scarrott</div>
+    </div>
+
+    <!--Navigation bar-->
+    <nav class="navbar-expand-lg text-center">
+      <!--Mobile nav bar drop down button -->
+      <button class="navbar-toggler" id="navtog" data-toggle="collapse" data-target="#ProjectsBlogDiv">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+
+      <!--Nav bar links-->
+      <div class="row text-center collapse navbar-collapse" id="ProjectsBlogDiv">
+        <a class="col-lg-2 col-md-12 offset-lg-3" id="ProjectsLink" href="projects.html">Projects</a>
+        <div class="col-lg-0" id="break">|</div>
+        <a class="col-lg-2 col-md-12" id="BlogLink" href="blog.html">Blog</a>
+        <div class="col-lg-0" id="break">|</div>
+        <a class="col-lg-2 col-md-12" id="AboutmeLink" href="AboutMe.html">About Me</a>
+      </div>
+    </nav>
+
+    <!----------------------------------------------------Project 1------------------------------------------------------------->
+
+    <div class="row text-lg-left" id="FinalYearProject">
+      <!--Icon for the main language that the code was written in-->
+      <i class="col-lg-1 offset-lg-2 fab fa-python" id="language"></i>
+
+      <!--Main body of text about the project-->
+      <div class="col-lg-6  col-md-12">
+        <!--Title of the project-->
+        <div class="row offset-md-1 col-md-10 text-md-center" id="name">Deep Learning to Analyse the Sentiment Of Tweets</div>
+        
+        <!--Line between the title and body of text only visable on mobile devices-->
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1" id="breaker"></div>
+        </div>
+        <!--Body of the project-->
+        <div class="row " id="description">Final Year University Project where I compared a multi layer perceptron,
+          convolutional neural network and a recurrent neural network's performance at performing sentiment analysis on
+          tweets. This model was then implemented into a basic web application where the user can analsye the sentiment
+          of trends on twitter </div>
+      </div>
+
+      <!--External links to the project-->
+      <div class="row text-center" id="ProjectLinks">
+
+        <!--Link if the project is live-->
+        <div class="col-lg-0 col-md-2 offset-md-3 offset-sm-4">
+          <a href="#" class="fas fa-desktop" id="NotLive"></a>
+        </div>
+        <!--Link to the github repsitory-->
+        <div class="col-lg-12 col-md-2">
+          <a href="https://github.com/isaac-scarrott/Project" target="_blank" rel="noopener noreferrer"
+            class="fab fa-github-square" id="ProjectGit"></a>
+        </div>
+      </div>
+    </div>
+
+    <!----------------------------------------------------Project 2------------------------------------------------------------->
+
+    <!--Fades out the bottom of the page to white-->
+    <div class="edge" id="bottom"></div>
+
+    <!--Contains links to my professional social media and CV-->
+    <div class="row col-centered text-center" id="OtherLinks">
+      <a href="https://www.linkedin.com/in/isaac-scarrott/" target="_blank" rel="noopener noreferrer"
+        class="col offset-lg-4 fab fa-linkedin"></a>
+      <a href="https://github.com/isaac-scarrott" target="_blank" rel="noopener noreferrer"
+        class="col fab fa-github"></a>
+      <a href="Isaac Scarrott CV.pdf" target="_blank" rel="noopener noreferrer" class="col fas fa-address-book"></a>
+    </div>
+  </div>
+
+  <!--Load in the relevant javascript files-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6c69ef72dd.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>

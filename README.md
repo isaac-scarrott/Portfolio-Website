@@ -48,6 +48,7 @@ TODO: Fill this in with info about my project
 ### Building with
 * [Reactjs](https://reactjs.org/)
 * [Typescript](https://www.typescriptlang.org/)
+* [Flow](https://flow.org/)
 
 
 

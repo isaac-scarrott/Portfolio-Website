@@ -1,1 +1,4 @@
 React-TS/src/.idea/workspace.xml
+node_modules
+package-lock.json
+dist

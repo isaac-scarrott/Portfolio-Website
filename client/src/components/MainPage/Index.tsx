@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import {TypeWriter, TypeWriterInput} from '../Typerwriter/Index'
+import TypeIt, {TypeItInput} from '@isaac.scarrott/react-type-it';
 
 import { colour } from "../../utils/Styles";
 
@@ -14,11 +14,12 @@ const PageContainer = styled.div`
 export default function MainPage() {
   return (
     <PageContainer>
-      <TypeWriter loop>
-        <TypeWriterInput>Hi, I'm Isaac Scarrott</TypeWriterInput>
-        <TypeWriterInput backspace={14} delay={5000}>a software developer</TypeWriterInput>
-        <TypeWriterInput backspace={23} delay={5000}> know about ES6, React, and Node</TypeWriterInput>
-      </TypeWriter>
+      <TypeIt loop style={{ color: "red" }}>
+        <TypeItInput>Hi, this is a react type it demo</TypeItInput>
+        <TypeItInput backspace={28} delay={2000}>I hope you like this packgae</TypeItInput>
+        <TypeItInput backspace={3} duration={600} delay={700}>age</TypeItInput>
+        <TypeItInput backspace={28} delay={2000}>this is also my first NPM package</TypeItInput>
+      </TypeIt>
     </PageContainer>
   );
 }

@@ -15,6 +15,7 @@ export const Circle = styled.div<{ navOpen: boolean }>`
   border-radius: 50%;
   background-color: ${colour.secondary};
   transition: 0.4s;
+  z-index: 200000000;
 `;
 
 export const Hamburger = styled.div`
@@ -28,12 +29,13 @@ export const Hamburger = styled.div`
   right: 0;
   margin: 25px;
   cursor: pointer;
+  z-index: 200000001;
 `;
 
 export const HamburgerSpan = styled.div`
   width: 80%;
-  height: 5px;
+  height: 4px;
   right: 0;
-  border-radius: 10%;
+  border-radius: 20%;
   background-color: ${colour.primary};
 `;

@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
+import {colour} from '../utils/Styles'
+
 export default createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Heebo');
   html, body, #root {
     height: 100%;
     min-height: 100%;
@@ -12,11 +15,8 @@ export default createGlobalStyle`
     -webkit-tap-highlight-color: transparent;
     line-height: 1.2;
     font-size: 16px;
-  }
-
-  #root {
-    display: flex;
-    flex-direction: column;
+    font-family: 'Heebo', sans-serif;
+    background-color: ${colour.offWhite};
   }
 
   a {

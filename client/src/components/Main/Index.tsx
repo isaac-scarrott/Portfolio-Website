@@ -16,7 +16,6 @@ const MainPageContainer = styled(PageContainer)`
 export default function MainPage() {
   return (
     <MainPageContainer>
-      <div>
         <TypeIt loop style={typedTextAnimationStyle}>
           <TypeItInput duration={1200}>Hi, I'm Isaac Scarrott</TypeItInput>
           <TypeItInput backspace={14} delay={3000}>
@@ -30,7 +29,6 @@ export default function MainPage() {
           </TypeItInput>
           <TypeItInput delay={3000}> </TypeItInput>
         </TypeIt>
-      </div>
     </MainPageContainer>
   );
 }

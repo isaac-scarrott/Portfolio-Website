@@ -1,7 +1,5 @@
 import React from "react";
 
-import TypeIt, { TypeItInput } from "@isaac.scarrott/react-type-it";
-
 import { PageContainer, colour } from "../../utils/Styles";
 import styled from "styled-components";
 
@@ -24,7 +22,7 @@ const SkillsTitleContainer = styled.h1`
   color: ${colour.primary};
 `;
 
-const SkillsContainer = styled.h1`
+const SkillsContainer = styled.div`
   display: flex;
   align-items: center;
   color: ${colour.primary};

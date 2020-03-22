@@ -1,34 +1,76 @@
 import React from "react";
-import styled from "styled-components";
+import TypeIt, { TypeItInput } from "react-type-it";
 
-import TypeIt, { TypeItInput } from "@isaac.scarrott/react-type-it";
+import {
+  MainPageContainer,
+  typedTextAnimationStyle,
+  LinksContainer,
+  Links
+} from "./Styles";
 
-import {typedTextAnimationStyle} from './Styles'
+const linksArray = [
+  { component: Links.Github, link: "https://github.com/isaac-scarrott" },
+  {
+    component: Links.LinkedIn,
+    link: "https://www.linkedin.com/in/isaac-scarrott/"
+  },
+  {
+    component: Links.Cv,
+    link: "http://isaacscarrott.co.uk/Isaac%20Scarrott%20CV.pdf"
+  }
+];
 
-import { PageContainer } from "../../utils/Styles";
+function LinksBar() {
+  return (
+    <LinksContainer>
+      {linksArray.map((linkObject, index) => (
+        <a
+          key={String(index)}
+          href={linkObject.link}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <linkObject.component size={40} />
+        </a>
+      ))}
+    </LinksContainer>
+  );
+}
 
-const MainPageContainer = styled(PageContainer)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+const typewriteData = [
+  { text: `Hi, I'm Isaac Scarrott`, backspace: 0, delay: 0, duration: 1200 },
+  { text: "a software develoepr", backspace: 14, delay: 3000, duration: 2000 },
+  { text: "per", backspace: 3, delay: 250, duration: 500 },
+  { text: "feel free to have a look around :)", backspace: 24, delay: 3000, duration: 2000 },
+  { text: "", backspace: 0, delay: 3000, duration: 2000 }
+];
+
+function TypedAnimation() {
+  return (
+    <div>
+      <TypeIt loop style={typedTextAnimationStyle}>
+        {typewriteData.map((typewriteItem, index) => {
+          return (
+            <TypeItInput
+              key={String(index)}
+              backspace={typewriteItem.backspace}
+              delay={typewriteItem.delay}
+              duration={typewriteItem.duration}
+            >
+              {typewriteItem.text}
+            </TypeItInput>
+          );
+        })}
+      </TypeIt>
+    </div>
+  );
+}
 
 export default function MainPage() {
   return (
     <MainPageContainer>
-        <TypeIt loop style={typedTextAnimationStyle}>
-          <TypeItInput duration={1200}>Hi, I'm Isaac Scarrott</TypeItInput>
-          <TypeItInput backspace={14} delay={3000}>
-            a software develoepr
-          </TypeItInput>
-          <TypeItInput backspace={3} delay={250} duration={500}>
-            per
-          </TypeItInput>
-          <TypeItInput backspace={24} delay={3000}>
-            feel free to have a look around :)
-          </TypeItInput>
-          <TypeItInput delay={3000}> </TypeItInput>
-        </TypeIt>
+      <LinksBar />
+      <TypedAnimation />
     </MainPageContainer>
   );
 }

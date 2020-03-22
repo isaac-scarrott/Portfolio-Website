@@ -1,8 +1,40 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 import { colour } from "../../utils/Styles";
 
 export const NavContainer = styled.div`
+
+`;
+
+export const NavLinksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 200000002;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+
+const keyframes1 = keyframes`
+0% { -webkit-transform: scale(0.0); }
+30% { -webkit-transform: scale(0.0); }
+100% { -webkit-transform: scale(1); }
+`;
+
+export const NavLink = styled.div<{ navOpen: boolean }>`
+  color: #597F7C;
+  font-size: 30px;
+  font-weight: 900;
+  z-index: 200000000;
+  animation: ${keyframes1} 0.5s;
+  transition: transform 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 `;
 
 export const Circle = styled.div<{ navOpen: boolean }>`
@@ -15,7 +47,7 @@ export const Circle = styled.div<{ navOpen: boolean }>`
   border-radius: 50%;
   background-color: ${colour.secondary};
   transition: 0.4s;
-  z-index: 200000000;
+  z-index: 200000001;
 `;
 
 export const Hamburger = styled.div`
@@ -29,7 +61,7 @@ export const Hamburger = styled.div`
   right: 0;
   margin: 25px;
   cursor: pointer;
-  z-index: 200000001;
+  z-index: 200000002;
 `;
 
 export const HamburgerSpan = styled.div`
@@ -37,5 +69,5 @@ export const HamburgerSpan = styled.div`
   height: 4px;
   right: 0;
   border-radius: 20%;
-  background-color: ${colour.primary};
+  background-color: #597F7C;
 `;

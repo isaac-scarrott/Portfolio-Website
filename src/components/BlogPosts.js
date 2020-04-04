@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import dayjs from 'dayjs';
 
 import PageContainer from '../styles/PageContainer';
 
@@ -12,15 +14,15 @@ export const BlogTitleContainer = styled.h1`
   height: 5%;
   display: flex;
   color: #597f7c;
+  margin-bottom: 0;
 `;
 
 export const BlogEntriesContainer = styled.div`
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
   flex-grow: 1;
   width: 80%;
-  margin: 4%;
 `;
 
 export const BlogEntryContainer = styled.div`
@@ -38,6 +40,7 @@ export const BlogEntryImage = styled.img`
   height: 70%;
   max-height: 70%;
   border-radius: 2px;
+  box-shadow: 0px 30px 48px -18px rgba(0,0,0,0.33);
 `;
 
 export const BlogEntryTitle = styled.h3`
@@ -45,6 +48,17 @@ export const BlogEntryTitle = styled.h3`
   align-items: center;
   height: '20%';
   margin: 0 10px;
+`;
+
+export const BlogEntryTimeToRead = styled.p`
+  display: 'flex';
+  align-items: center;
+  height: '10%';
+  margin: 0 10px;
+  color: gray;
+  font-size: 15px;
+  float: left;
+  font-weight: 600;
 `;
 
 export const BlogEntryDate = styled.p`
@@ -58,45 +72,68 @@ export const BlogEntryDate = styled.p`
   font-weight: 600;
 `;
 
-const BlogPosts = [
-  {
-    id: 1,
-    imgSrc: 'https://hackernoon.com/hn-images/1*sby1Jwafc8jkPSbCfAgTnw.jpeg',
-    title: `Why you should use a consistent ref...and why you shouldn't care`,
-    date: 'March 2020',
-  },
-];
-
 const comingSoonData = {
-  id: 1,
-  imgSrc:
-    'https://www.seedprod.com/wp-content/uploads/2019/09/Best-coming-soon-pages.jpg',
-  title: `Coming Soon`,
-  date: '',
+  node : {
+    timeToRead: '',
+    frontmatter : {
+      title: 'Coming Soon',
+      path: '/coming-soon',
+      image: 'https://www.seedprod.com/wp-content/uploads/2019/09/Best-coming-soon-pages.jpg',
+      createdTime: ''
+    }
+  }
 };
 
-function getBlogPostsWithComingSoonfillers() {
+function getBlogPostsWithComingSoonfillers(blogPosts) {
   let comingSoonBlogPosts = [];
 
-  if (BlogPosts?.length < 8) {
-    comingSoonBlogPosts = Array(6 - BlogPosts.length).fill(comingSoonData);
+  if (blogPosts?.length < 4) {
+    comingSoonBlogPosts = Array(4 - blogPosts.length).fill(comingSoonData);
   }
 
-  return [...BlogPosts, ...comingSoonBlogPosts];
+  return [...blogPosts, ...comingSoonBlogPosts];
 }
 
 export default function BlogPage() {
+  const data = useStaticQuery(graphql`
+    query getAllBlogPostInfo {
+      allMarkdownRemark {
+        edges {
+          node {
+            timeToRead
+            frontmatter {
+              title
+              image
+              createdTime
+              path
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const blogPostWithComingSoon = getBlogPostsWithComingSoonfillers(data.allMarkdownRemark.edges);
+
   return (
     <BlogPageContainer>
       <BlogTitleContainer>Blog</BlogTitleContainer>
       <BlogEntriesContainer>
-        {getBlogPostsWithComingSoonfillers().map((blogPostData, index) => (
-          <BlogEntryContainer>
-            <BlogEntryImage src={blogPostData.imgSrc} />
-            <BlogEntryTitle>{blogPostData.title}</BlogEntryTitle>
-            <BlogEntryDate>{blogPostData.date}</BlogEntryDate>
-          </BlogEntryContainer>
-        ))}
+        {blogPostWithComingSoon.map(({ node }) => {
+          const formattedDate = node.frontmatter.createdTime
+            ? dayjs(node.frontmatter.createdTime).format('MMM YYYY')
+            : '';
+          return (
+            <Link to={node.frontmatter.path} key={node.frontmatter.path}>
+              <BlogEntryContainer>
+                <BlogEntryImage src={node.frontmatter.image} />
+                <BlogEntryTitle>{node.frontmatter.title}</BlogEntryTitle>
+                <BlogEntryTimeToRead>{`${node.timeToRead} min read`}</BlogEntryTimeToRead>
+                <BlogEntryDate>{formattedDate}</BlogEntryDate>
+              </BlogEntryContainer>
+            </Link>
+          );
+        })}
         ;
       </BlogEntriesContainer>
     </BlogPageContainer>

@@ -78,13 +78,13 @@ export default function Nav() {
   const render = () => {
     return navOpen ? (
       <NavLinksContainer>
-        <NavLink navOpen key="home">
+        <NavLink navOpen>
           Home
         </NavLink>
-        <NavLink navOpen key="skills">
+        <NavLink navOpen>
           Skills
         </NavLink>
-        <NavLink navOpen key="blog">
+        <NavLink navOpen>
           Blog
         </NavLink>
       </NavLinksContainer>

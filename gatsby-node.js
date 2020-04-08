@@ -1,8 +1,6 @@
 const path = require('path');
 
-exports.createPages = async ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
-
+async function createBlogPostPages(graphql, createPage) {
   const postTemplate = path.resolve('src/templates/blog.js');
 
   const {errors, data} = await graphql(`
@@ -14,7 +12,6 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
             id
             frontmatter {
               path
-              title
             }
           }
         }
@@ -32,4 +29,39 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
       component: postTemplate,
     });
   });
+}
+
+async function createSkillsPages(graphql, createPage) {
+  const skillTemplate = path.resolve('src/templates/skill.js');
+
+  const {errors, data} = await graphql(`
+    {
+      allSkills {
+        edges {
+          node {
+            path
+          }
+        }
+      }
+    }
+  `);
+
+  if (errors) {
+    throw new Error(errors);
+  }
+
+  data.allSkills.edges.forEach(({ node }) => {
+    createPage({
+      path: node.path,
+      component: skillTemplate,
+    });
+  });
+}
+
+exports.createPages = async ({ boundActionCreators, graphql }) => {
+  const { createPage } = boundActionCreators;
+
+  await createBlogPostPages(graphql, createPage);
+
+  await createSkillsPages(graphql, createPage)
 };

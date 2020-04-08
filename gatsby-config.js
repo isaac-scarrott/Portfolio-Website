@@ -16,5 +16,17 @@ module.exports = {
         name: 'BlogPosts',
       },
     },
+    {
+      resolve: `gatsby-transformer-json`,
+      options: {
+        typeName: `skills`, // a fixed string
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/skills/`,
+      },
+    },
   ],
 };

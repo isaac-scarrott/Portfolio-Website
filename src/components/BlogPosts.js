@@ -119,12 +119,12 @@ export default function BlogPage() {
     <BlogPageContainer>
       <BlogTitleContainer>Blog</BlogTitleContainer>
       <BlogEntriesContainer>
-        {blogPostWithComingSoon.map(({ node }) => {
+        {blogPostWithComingSoon.map(({ node }, index) => {
           const formattedDate = node.frontmatter.createdTime
             ? dayjs(node.frontmatter.createdTime).format('MMM YYYY')
             : '';
           return (
-            <Link to={node.frontmatter.path} key={node.frontmatter.path}>
+            <Link to={node.frontmatter.path} key={node.frontmatter.path + index}>
               <BlogEntryContainer>
                 <BlogEntryImage src={node.frontmatter.image} />
                 <BlogEntryTitle>{node.frontmatter.title}</BlogEntryTitle>

@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import NormalisedStyles from '../styles/NormalisedStyles';
 import BaseStyles from '../styles/BaseStyles';
 
-function GlobalStyles() {
+export function GlobalStyles() {
   return (
     <>
       <BaseStyles />

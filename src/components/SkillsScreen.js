@@ -7,6 +7,8 @@ import { navigate } from 'gatsby';
 import PageContainer from '../styles/PageContainer';
 import colours from '../styles/colours';
 
+export const transitionLengthString = '0.5s'
+
 const animation = keyframes`
   from { opacity: 1; }
   to { opacity: 0; }
@@ -23,7 +25,7 @@ export const SkillsTitleContainer = styled.h1`
   display: flex;
   align-items: center;
   color: #597f7c;
-  animation: ${props => (props.open ? animation : animationIn)} 0.5s forwards;
+  animation: ${props => (props.open ? animation : animationIn)} ${transitionLengthString} forwards;
 `;
 
 export const SkillsContainer = styled.div`
@@ -36,11 +38,11 @@ export const SkillsContainer = styled.div`
   height: ${props => (props.open ? '100vh' : '10%')};
   justify-content: space-evenly;
   margin: auto 0;
-  transition: 0.5s linear;
+  transition: ${transitionLengthString} ease;
 `;
 
 const SkillsItemContainer = styled.span`
-  animation: ${props => (props.open ? animation : animationIn)} 0.5s forwards;
+  animation: ${props => (props.open ? animation : animationIn)} ${transitionLengthString} forwards;
   transition: transform 0.2s;
   &:hover {
     cursor: pointer;

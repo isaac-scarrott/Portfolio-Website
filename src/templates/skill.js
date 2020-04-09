@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { graphql } from 'gatsby';
-import { SkillsContainer } from '../components/SkillsScreen';
-import { GlobalStyles } from '../pages';
+import { SkillsContainer, transitionLengthString } from '../components/SkillsScreen';
+import { LayoutWithPageContainer as Layout } from '../components/Layout';
 import colours from '../styles/colours';
 import styled, {keyframes, css} from 'styled-components';
 import PageContainer from '../styles/PageContainer';
@@ -27,11 +27,10 @@ export const SkillContainer = styled.div`
   height: 100vh;
   justify-content: space-evenly;
   margin: auto 0;
-  transition: 0.3s linear;
 `;
 
 export const SkillDescription = styled.div`
-  animation: ${props => (props.open ? css`${animationIn} 0.5s` : css`${animation} 0.5s`)} forwards;
+  animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
   padding: 0 10%;
 `;
 
@@ -44,7 +43,7 @@ export const CloseButton = styled.div`
   margin: 10px;
   border-radius: 50%;
   background-color: ${colours.secondary};
-  animation: ${props => (props.open ? css`${animationIn} 0.5s` : css`${animation} 0.5s`)} forwards;
+  animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
   cursor: pointer;
   &:before, &:after {
     position: absolute;
@@ -66,7 +65,7 @@ export const CloseButton = styled.div`
 
 const SkillTitleContainer = styled(SkillsTitleContainer)`
   color: ${colours.offWhite};
-  animation: ${props => (props.open ? css`${animationIn} 0.5s` : css`${animation} 0.5s`)} forwards;
+  animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
 `;
 
 export default function Skill({data}) {
@@ -79,21 +78,22 @@ export default function Skill({data}) {
   }, [goingBackToPrevPage]);
 
   return (
-    <PageContainer>
-      <GlobalStyles />
-      <CloseButton
-        onClick={() => setGoingBackToPrevPage(true)}
-        open={!goingBackToPrevPage}
-      />
-      <SkillTitleContainer open={!goingBackToPrevPage}>
-        {data.skills.name}
-      </SkillTitleContainer>
-      <SkillsContainer open={!goingBackToPrevPage}>
-        <SkillDescription open={!goingBackToPrevPage}>
-          {data.skills.description}
-        </SkillDescription>
-      </SkillsContainer>
-    </PageContainer>
+    <Layout>
+      <PageContainer>
+        <CloseButton
+          onClick={() => setGoingBackToPrevPage(true)}
+          open={!goingBackToPrevPage}
+        />
+        <SkillTitleContainer open={!goingBackToPrevPage}>
+          {data.skills.name}
+        </SkillTitleContainer>
+        <SkillsContainer open={!goingBackToPrevPage}>
+          <SkillDescription open={!goingBackToPrevPage}>
+            {data.skills.description}
+          </SkillDescription>
+        </SkillsContainer>
+      </PageContainer>
+    </Layout>
   );
 }
 

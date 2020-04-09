@@ -1,9 +1,10 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 
 import Nav from './Nav';
-import PageContainer from '../styles/PageContainer';
 import NormalisedStyles from '../styles/NormalisedStyles';
 import BaseStyles from '../styles/BaseStyles';
+import PageContainer from '../styles/PageContainer';
 
 export function GlobalStyles() {
   return (
@@ -24,13 +25,25 @@ function HelmetWrapper() {
     </Helmet>
   );
 }
-export default function Layout() {
+
+export function LayoutWithPageContainer({children}) {
+    return (
+      <PageContainer>
+        <Layout>
+          {children}
+        </Layout>
+      </PageContainer>
+    );
+}
+
+export default function Layout({children}) {
   return (
-    <HelmetWrapper />
-    <GlobalStyles />
-    <Nav/>
-    <PageContainer>
+    <>
+      <HelmetWrapper />
+      <GlobalStyles />
+
+      <Nav/>
       {children}
-    </PageContainer>
+    </>
   );
 }

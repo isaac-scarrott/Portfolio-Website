@@ -7,7 +7,8 @@ import PageContainer from '../styles/PageContainer';
 
 const TypeItStyle = {
   color: '#597F7C',
-  fontSize: '50px'
+  fontSize: '50px',
+  textShadow: '0px 20px 30px rgba(89, 127, 124, 0.8)',
 };
 
 const TypeItWrapper = styled.div`

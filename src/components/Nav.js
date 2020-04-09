@@ -37,6 +37,7 @@ export const Circle = styled.div`
   width: ${props => (props.navOpen ? '180%' : '80px')};
   height: ${props => (props.navOpen ? '180%' : '80px')};
   position: fixed;
+  transform: rotate(0deg);
   right: ${props => (props.navOpen ? '-400px' : '0')};
   top: ${props => (props.navOpen ? '-400px' : '0')};
   margin: 10px;
@@ -46,14 +47,10 @@ export const Circle = styled.div`
   z-index: 200000001;
 `;
 
-export const Hamburger = styled.div`
+export const Hamburger = styled.span`
   width: 50px;
   height: 50px;
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
   right: 0;
   margin: 25px;
   cursor: pointer;
@@ -61,30 +58,57 @@ export const Hamburger = styled.div`
 `;
 
 export const HamburgerSpan = styled.div`
-  width: 80%;
+  display: block;
+  position: absolute;
+  width: 100%;
   height: 4px;
   right: 0;
   border-radius: 20%;
   background-color: #597f7c;
+  transition: .25s ease-in-out;
+  transform: rotate(0deg);
+
+  &:nth-child(1) {
+    top: ${(props) => props.navOpen ? '23px': '10px'};
+    width: ${(props) => props.navOpen ? '0%': '100%'};
+    left: ${(props) => props.navOpen ? '50%': '0'};
+  }
+
+  &:nth-child(2) {
+    top: 23px;
+    transform: ${(props) => props.navOpen ? 'rotate(45deg)': 'rotate(0deg)'};
+  }
+
+  &:nth-child(3) {
+    transform: ${(props) => props.navOpen ? 'rotate(-45deg)': 'rotate(0deg)'};
+    top: 23px;
+  }
+
+  &:nth-child(4) {
+    bottom: 10px;
+    top: ${(props) => props.navOpen ? '25px': '36px'};
+    width: ${(props) => props.navOpen ? '0%': '100%'};
+    left: ${(props) => props.navOpen ? '50%': '0'};
+  }
 `;
 
 export default function Nav() {
   const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = navOpen ? 'hidden' : 'visible';
+    // document.body.style.overflow = navOpen ? 'hidden' : 'visible';
   }, [navOpen]);
 
   const render = () => {
     return navOpen ? (
       <NavLinksContainer>
-        <NavLink navOpen>
+        <NavLink>
           Home
         </NavLink>
-        <NavLink navOpen>
+        <NavLink>
           Skills
         </NavLink>
-        <NavLink navOpen>
+        <NavLink>
           Blog
         </NavLink>
       </NavLinksContainer>
@@ -102,9 +126,10 @@ export default function Nav() {
             setNavOpen(oldNavOpen => !oldNavOpen);
           }}
         >
-          <HamburgerSpan></HamburgerSpan>
-          <HamburgerSpan></HamburgerSpan>
-          <HamburgerSpan></HamburgerSpan>
+          <HamburgerSpan navOpen={navOpen}/>
+          <HamburgerSpan navOpen={navOpen}/>
+          <HamburgerSpan navOpen={navOpen}/>
+          <HamburgerSpan navOpen={navOpen}/>
         </Hamburger>
       </div>
     </>

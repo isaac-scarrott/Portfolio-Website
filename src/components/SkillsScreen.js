@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import styled, { keyframes, css } from 'styled-components';
+import React, { useState, useRef } from 'react';
+import styled, { keyframes } from 'styled-components';
 import { FaReact, FaAws, FaGitAlt } from 'react-icons/fa';
 import { DiNodejs, DiPhp } from 'react-icons/di';
 import { navigate } from 'gatsby';
 
 import PageContainer from '../styles/PageContainer';
 import colours from '../styles/colours';
-
-const sleep = m => new Promise(r => setTimeout(r, m));
 
 const animation = keyframes`
   from { opacity: 1; }
@@ -59,24 +57,29 @@ const skillsComponents = [
 ];
 
 export default function SkillsPage() {
-  const [isSkillsOpen, setIsSkillsOpen] = useState(false);
+  const [skillOpen, setSkillsOpen] = useState(false);
+  const pageContainerRef = useRef(null);
 
   function delayedLinkToPage(linkTo) {
+    window.scrollTo({
+      top: pageContainerRef.current.offsetTop,
+      behavior: 'smooth',
+    });
     setTimeout(() => navigate(linkTo), 550);
   }
 
   return (
-    <PageContainer>
-      <SkillsTitleContainer open={isSkillsOpen}>Skills</SkillsTitleContainer>
-      <SkillsContainer open={isSkillsOpen}>
-        {skillsComponents.map(({component, linkTo}, index) => (
-          <SkillsItemContainer key={String(index)} open={isSkillsOpen}>
-            <a onClick={() => delayedLinkToPage(linkTo)}>
+    <PageContainer ref={pageContainerRef}>
+      <SkillsTitleContainer open={skillOpen}>Skills</SkillsTitleContainer>
+      <SkillsContainer open={skillOpen}>
+        {skillsComponents.map(({ component, linkTo }, index) => (
+          <SkillsItemContainer key={String(index)} open={skillOpen}>
+            <div onClick={() => delayedLinkToPage(linkTo)}>
               {React.createElement(component, {
                 size: 100,
-                onClick: () => setIsSkillsOpen(true),
+                onClick: () => setSkillsOpen(true),
               })}
-            </a>
+            </div>
           </SkillsItemContainer>
         ))}
       </SkillsContainer>

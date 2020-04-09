@@ -8,6 +8,8 @@ import {
 
 import colours from '../styles/colours';
 
+import cv from '../cv.pdf'
+
 const LinksContainer = styled.div`
   position: absolute;
   display: flex;
@@ -58,11 +60,7 @@ export default function LinksBar() {
       >
         <LinkedInIcon size={40} />
       </a>
-      <a
-        href={'http://isaacscarrott.co.uk/Isaac%20Scarrott%20CV.pdf'}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={cv} target="_blank" rel="noopener noreferrer">
         <CvIcon size={40} />
       </a>
     </LinksContainer>

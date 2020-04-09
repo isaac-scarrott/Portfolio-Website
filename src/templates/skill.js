@@ -31,24 +31,42 @@ export const SkillContainer = styled.div`
 `;
 
 export const SkillDescription = styled.div`
+  animation: ${props => (props.open ? css`${animationIn} 0.5s` : css`${animation} 0.5s`)} forwards;
   padding: 0 10%;
 `;
 
 export const CloseButton = styled.div`
+  width: 80px;
+  height: 80px;
   position: fixed;
-  display: relative;
-  width: 30px;
-  height: 30px;
+  left: 0;
+  top: 0;
+  margin: 10px;
   border-radius: 50%;
-  background-color: white;
-  left: 20px;
-  top: 20px;
+  background-color: ${colours.secondary};
+  animation: ${props => (props.open ? css`${animationIn} 0.5s` : css`${animation} 0.5s`)} forwards;
   cursor: pointer;
+  &:before, &:after {
+    position: absolute;
+    content: ' ';
+    top: 16px;
+    left: 37px;
+    height: 50px;
+    width: 7px;
+    background-color: ${colours.offWhite};
+    border-radius: 10px;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
 `;
 
 const SkillTitleContainer = styled(SkillsTitleContainer)`
   color: ${colours.offWhite};
-  animation: ${props => (props.open ? css`${animationIn} 0.5s` : css`${animationIn} 0.5s`)} forwards;
+  animation: ${props => (props.open ? css`${animationIn} 0.5s` : css`${animation} 0.5s`)} forwards;
 `;
 
 export default function Skill({data}) {
@@ -63,10 +81,17 @@ export default function Skill({data}) {
   return (
     <PageContainer>
       <GlobalStyles />
-      <CloseButton onClick={() => setGoingBackToPrevPage(true)} />
-      <SkillTitleContainer open={!goingBackToPrevPage}>{data.skills.name}</SkillTitleContainer>
+      <CloseButton
+        onClick={() => setGoingBackToPrevPage(true)}
+        open={!goingBackToPrevPage}
+      />
+      <SkillTitleContainer open={!goingBackToPrevPage}>
+        {data.skills.name}
+      </SkillTitleContainer>
       <SkillsContainer open={!goingBackToPrevPage}>
-        <SkillDescription>{data.skills.description}</SkillDescription>
+        <SkillDescription open={!goingBackToPrevPage}>
+          {data.skills.description}
+        </SkillDescription>
       </SkillsContainer>
     </PageContainer>
   );

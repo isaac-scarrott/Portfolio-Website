@@ -1,29 +1,19 @@
 const colours = {
-  primary: '#495867', // INDEPENDENCE
-  secondary: '#BDD5EA', // UCLA BLUE
+  primary: '#495867', // Independence
+  secondary: '#BDD5EA', // UCLA Blue
 
-  success: '#0B875B', // green
-  danger: '#E13C3C', // red
-  warning: '#F89C1C', // orange
+  success: '#75b79e', // Green
+  danger: '#ff2e44', // Red
+  warning: '#f1935c', // Orange
 
-  white: '#FFFFFF',
-  offWhite: '#F7F7FF',
-  textDarkest: '#172b4d',
-  textDark: '#42526E',
-  textMedium: '#5E6C84',
-  textLight: '#8993a4',
-  textLink: '#0052cc',
+  white: '#FFFFFF', // White
+  offWhite: '#F7F7FF', //Titan White
 
-  backgroundDarkPrimary: '#0747A6',
-  backgroundMedium: '#dfe1e6',
-  backgroundLight: '#ebecf0',
-  backgroundLightest: '#F4F5F7',
-  backgroundLightPrimary: '#D2E5FE',
-  backgroundLightSuccess: '#E4FCEF',
+  black: '#000000', // Black
 
-  borderLightest: '#dfe1e6',
-  borderLight: '#C1C7D0',
-  borderInputFocus: '#4c9aff',
+  gray: '#cfcfc4', // Pastel Gray,
+  lightGray: '#f1f1ee', //Desert Storm
+  darkGray: '#adad9a', // Bud
 };
 
 export default colours;

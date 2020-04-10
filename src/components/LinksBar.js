@@ -22,7 +22,6 @@ const LinksContainer = styled.div`
 
   a {
     transition: transform 0.2s;
-    color: inherit;
     text-decoration: none;
     &:hover {
       cursor: pointer;
@@ -48,9 +47,9 @@ export default function LinksBar() {
       >
         <TiSocialLinkedinCircular size={40} />
       </a>
-      <a href={cv} target="_blank" rel="noopener noreferrer">
-        <TiDocumentText size={40} />
-      </a>
+        <a href={cv} target="_blank" rel="noopener noreferrer">
+          <TiDocumentText size={40} />
+        </a>
     </LinksContainer>
   );
 }

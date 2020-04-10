@@ -10,11 +10,11 @@ export default createGlobalStyle`
   }
 
   body {
-    color: '#3D3B3C';
+    color: ${colours.black};
     -webkit-tap-highlight-color: transparent;
     line-height: 1.2;
     font-size: 16px;
-    font-family: Merriweather, Georgia, serif;
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;
     background-color: ${colours.offWhite};
     overflow-x: hidden;
   }

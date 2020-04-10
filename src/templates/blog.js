@@ -4,6 +4,7 @@ import styled, {keyframes} from 'styled-components';
 
 import Layout from '../components/Layout';
 import dayjs from 'dayjs';
+import colours from '../styles/colours';
 
 const animation = keyframes`
   from {opacity: 0;}
@@ -27,7 +28,7 @@ const BlogPostTitle = styled.h1`
 
 const BlogInfo = styled.div`
   display: inline-flex;
-  color: gray;
+  color: ${colours.darkGray};
   justify-content: space-between;
   font-size: 8px;
   width: 55%;
@@ -60,7 +61,7 @@ const ScrollProgressDivContainer = styled.div`
   display: absolute;
   height: 500px;
   width: 2px;
-  background-color: lightgray;
+  background-color: ${colours.lightGray};
   left: 10%;
   top: 50%;
   transform: translateY(-50%);
@@ -69,7 +70,7 @@ const ScrollProgressDivContainer = styled.div`
 const ScrollProgressDiv = styled.div`
   height: ${(props) => props.percentScrolled}%;
   width: 2px;
-  background-color: black;
+  background-color: ${colours.black};
 
 `;
 

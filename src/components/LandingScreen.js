@@ -4,11 +4,13 @@ import styled from 'styled-components';
 
 import LinksBar from './LinksBar';
 import PageContainer from '../styles/PageContainer';
+import colours from '../styles/colours';
 
 const TypeItStyle = {
-  color: '#597F7C',
+  color: colours.black,
   fontSize: '50px',
   textShadow: '0px 20px 30px rgba(89, 127, 124, 0.8)',
+  fontWeight: 'light'
 };
 
 const TypeItWrapper = styled.div`

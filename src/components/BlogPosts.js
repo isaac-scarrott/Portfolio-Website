@@ -4,6 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import dayjs from 'dayjs';
 
 import PageContainer from '../styles/PageContainer';
+import colours from '../styles/colours'
 
 const animation = keyframes`
   from {opacity: 0;}
@@ -18,16 +19,10 @@ const BlogPageContainer = styled(PageContainer)`
   h1 {
     height: 5%;
     display: flex;
-    color: #597f7c;
+    color: ${colours.black};
     margin-bottom: 0;
+    text-shadow: 0px 15px 20px rgba(89, 127, 124, 0.6);
   }
-`;
-
-export const BlogTitleContainer = styled.h1`
-  height: 5%;
-  display: flex;
-  color: #597f7c;
-  margin-bottom: 0;
 `;
 
 export const BlogEntriesContainer = styled.div`
@@ -67,7 +62,7 @@ export const BlogEntryContainer = styled.div`
     align-items: center;
     height: '10%';
     margin: 0 10px;
-    color: gray;
+    color: ${colours.darkGray};
     font-size: 15px;
     font-weight: 600;
   }

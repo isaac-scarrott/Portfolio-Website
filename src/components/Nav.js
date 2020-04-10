@@ -19,9 +19,9 @@ export const NavLinksContainer = styled.nav`
   justify-content: space-evenly;
 
   a {
-    color: #597f7c;
+    color: ${colours.primary};
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 600;
     z-index: 200000000;
     animation: ${animateNavLinks} 0.5s;
     transition: transform 0.3s;
@@ -45,6 +45,7 @@ export const Circle = styled.div`
   background-color: ${colours.secondary};
   transition: 0.4s;
   z-index: 200000001;
+  transform: ${props => (props.navOpen ? 'scale(1)' : 'scale(0)')};
 `;
 
 export const Hamburger = styled.button`
@@ -56,6 +57,10 @@ export const Hamburger = styled.button`
   cursor: pointer;
   z-index: 200000002;
 
+  &:hover + ${Circle} {
+    transform: scale(1);
+  }
+
   span {
     display: block;
     position: absolute;
@@ -63,7 +68,7 @@ export const Hamburger = styled.button`
     height: 4px;
     right: 0;
     border-radius: 20%;
-    background-color: #597f7c;
+    background-color: ${colours.primary};
     transition: .25s ease-in-out;
     transform: rotate(0deg);
 
@@ -120,7 +125,6 @@ export default function Nav() {
       <div>
         {renderNavLinks()}
 
-        <Circle navOpen={navOpen}></Circle>
         <Hamburger
           onClick={() => setNavOpen(oldNavOpen => !oldNavOpen)}
           navOpen={navOpen}
@@ -130,6 +134,7 @@ export default function Nav() {
           <span/>
           <span/>
         </Hamburger>
+        <Circle navOpen={navOpen}></Circle>
       </div>
     </>
   );

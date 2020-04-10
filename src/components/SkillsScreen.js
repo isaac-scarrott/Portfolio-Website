@@ -20,11 +20,12 @@ const animationIn = keyframes`
 `;
 
 export const SkillsTitleContainer = styled.h1`
+  text-shadow: 0px 15px 20px rgba(89, 127, 124, 0.6);
   height: 10%;
   position: absolute;
   display: flex;
   align-items: center;
-  color: #597f7c;
+  color: ${colours.black};
   animation: ${props => (props.open ? animation : animationIn)} ${transitionLengthString} forwards;
 `;
 
@@ -33,7 +34,7 @@ export const SkillsContainer = styled.div`
   padding: 1% 0;
   align-items: center;
   background-color: ${colours.primary};
-  color: ${colours.secondary};
+  color: ${colours.offWhite};
   width: 100%;
   height: ${props => (props.open ? '100vh' : '10%')};
   justify-content: space-evenly;
@@ -46,6 +47,15 @@ export const SkillsContainer = styled.div`
     &:hover {
       cursor: pointer;
       transform: scale(1.1);
+
+      & > svg {
+        filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+      }
+    }
+
+    svg {
+      transition: filter 0.15s;
+      filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
     }
   }
 `;

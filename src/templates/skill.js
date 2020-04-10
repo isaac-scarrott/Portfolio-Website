@@ -17,16 +17,8 @@ const animationIn = keyframes`
   to { opacity: 1; }
 `;
 
-export const SkillContainer = styled.div`
-  display: flex;
-  padding: 1% 0;
-  align-items: center;
-  background-color: ${colours.primary};
-  color: ${colours.secondary};
-  width: 100%;
-  height: 100vh;
-  justify-content: space-evenly;
-  margin: auto 0;
+export const SkillContainer = styled(SkillsContainer)`
+  flex-direction: column;
 `;
 
 export const SkillDescription = styled.div`
@@ -35,23 +27,23 @@ export const SkillDescription = styled.div`
 `;
 
 export const CloseButton = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   position: fixed;
   left: 0;
   top: 0;
   margin: 10px;
   border-radius: 50%;
-  background-color: ${colours.secondary};
+  /* background-color: ${colours.secondary}; */
   animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
   cursor: pointer;
   &:before, &:after {
     position: absolute;
     content: ' ';
-    top: 16px;
-    left: 37px;
-    height: 50px;
-    width: 7px;
+    top: 5px;
+    left: 23px;
+    height: 40px;
+    width: 5px;
     background-color: ${colours.offWhite};
     border-radius: 10px;
   }
@@ -72,6 +64,12 @@ export default function Skill({data}) {
   const [goingBackToPrevPage, setGoingBackToPrevPage] = useState(false);
 
   useEffect(() => {
+    document.body.style.overflowY = 'hidden';
+
+    return (() => document.body.style.overflowY = 'auto');
+  }, []);
+
+  useEffect(() => {
     if (goingBackToPrevPage) {
       setTimeout(() => window.history.back(), 550);
     }
@@ -87,11 +85,14 @@ export default function Skill({data}) {
         <SkillTitleContainer open={!goingBackToPrevPage}>
           {data.skills.name}
         </SkillTitleContainer>
-        <SkillsContainer open={!goingBackToPrevPage}>
+        <SkillContainer open={!goingBackToPrevPage}>
           <SkillDescription open={!goingBackToPrevPage}>
             {data.skills.description}
           </SkillDescription>
-        </SkillsContainer>
+          <SkillDescription open={!goingBackToPrevPage}>
+            (Related blog post to be included soon)
+          </SkillDescription>
+        </SkillContainer>
       </PageContainer>
     </Layout>
   );

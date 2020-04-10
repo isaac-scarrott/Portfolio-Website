@@ -96,7 +96,7 @@ export default function Nav() {
   const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
-    // document.body.style.overflow = navOpen ? 'hidden' : 'visible';
+    document.body.style.overflowY = navOpen ? 'hidden' : 'visible';
   }, [navOpen]);
 
   const render = () => {

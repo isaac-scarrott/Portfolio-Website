@@ -14,8 +14,9 @@ export default createGlobalStyle`
     -webkit-tap-highlight-color: transparent;
     line-height: 1.2;
     font-size: 16px;
-    font-family: 'Heebo', sans-serif;
+    font-family: Merriweather, Georgia, serif;
     background-color: ${colours.offWhite};
+    overflow-x: hidden;
   }
 
   a {

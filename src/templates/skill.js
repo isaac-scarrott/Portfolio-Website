@@ -26,7 +26,7 @@ export const SkillDescription = styled.div`
   padding: 0 10%;
 `;
 
-export const CloseButton = styled.div`
+export const CloseButton = styled.button`
   width: 50px;
   height: 50px;
   position: fixed;
@@ -34,7 +34,6 @@ export const CloseButton = styled.div`
   top: 0;
   margin: 10px;
   border-radius: 50%;
-  /* background-color: ${colours.secondary}; */
   animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
   cursor: pointer;
   &:before, &:after {

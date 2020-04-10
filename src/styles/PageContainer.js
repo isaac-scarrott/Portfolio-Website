@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PageContainer = styled.div`
+const PageContainer = styled.section`
   height: 100vh;
   width: 100vw;
   display: flex;

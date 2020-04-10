@@ -39,14 +39,14 @@ export const SkillsContainer = styled.div`
   justify-content: space-evenly;
   margin: auto 0;
   transition: ${transitionLengthString} ease;
-`;
 
-const SkillsItemContainer = styled.span`
-  animation: ${props => (props.open ? animation : animationIn)} ${transitionLengthString} forwards;
-  transition: transform 0.2s;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+  a {
+    animation: ${props => (props.open ? animation : animationIn)} ${transitionLengthString} forwards;
+    transition: transform 0.2s;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
   }
 `;
 
@@ -75,14 +75,16 @@ export default function SkillsPage() {
       <SkillsTitleContainer open={skillOpen}>Skills</SkillsTitleContainer>
       <SkillsContainer open={skillOpen}>
         {skillsComponents.map(({ component, linkTo }, index) => (
-          <SkillsItemContainer key={String(index)} open={skillOpen}>
-            <div onClick={() => delayedLinkToPage(linkTo)}>
-              {React.createElement(component, {
-                size: 100,
-                onClick: () => setSkillsOpen(true),
-              })}
-            </div>
-          </SkillsItemContainer>
+          <a
+            key={String(index)}
+            open={skillOpen}
+            onClick={() => delayedLinkToPage(linkTo)}
+          >
+            {React.createElement(component, {
+              size: 100,
+              onClick: () => setSkillsOpen(true),
+            })}
+          </a>
         ))}
       </SkillsContainer>
     </PageContainer>

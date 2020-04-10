@@ -39,8 +39,8 @@ export default function Layout({children}) {
       <HelmetWrapper />
       <GlobalStyles />
 
-      <Nav/>
-      {children}
+      <Nav />
+      <main>{children}</main>
     </>
   );
 }

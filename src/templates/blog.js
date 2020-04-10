@@ -1,9 +1,18 @@
 import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 import Layout from '../components/Layout';
 import dayjs from 'dayjs';
+
+const animation = keyframes`
+  from {opacity: 0;}
+  to {opacity: 1;}
+`;
+
+const Content = styled.div`
+  animation: ${animation} 0.3s forwards;
+`;
 
 const BlogPostContainer = styled.div`
   display: flex;
@@ -22,10 +31,6 @@ const BlogInfo = styled.div`
   justify-content: space-between;
   font-size: 8px;
   width: 55%;
-`;
-
-const BlogPostAuthor = styled.h1`
-  font-weight: 900;
 `;
 
 const BlogPostDate = styled.h1`
@@ -81,26 +86,29 @@ export default function Blog({ data }) {
 
   useEffect(() => {
     window.addEventListener('scroll', calclateAndSetPercentScrolled);
-    return (() => window.removeEventListener('scroll'), calclateAndSetPercentScrolled)
+    return () => window.removeEventListener('scroll', calclateAndSetPercentScrolled);
   }, [])
 
   return (
     <Layout>
-      <ScrollProgressDivContainer><ScrollProgressDiv percentScrolled={percentScrolled}/></ScrollProgressDivContainer>
-      <BlogPostContainer>
-        <BlogPostTitle>{post.frontmatter.title}</BlogPostTitle>
-        <BlogInfo>
-          <BlogPostAuthor>{post.frontmatter.author}</BlogPostAuthor>
-          <BlogPostDate>
-            {dayjs(post.frontmatter.createdTime).format('MMM D, YYYY')}
-          </BlogPostDate>
-          <BlogPostReadTime>{`${post.timeToRead} min read`}</BlogPostReadTime>
-        </BlogInfo>
-        <ImageContainer>
-          <BlogPostImage src={post.frontmatter.image} />
-        </ImageContainer>
-        <BlogPostContent dangerouslySetInnerHTML={{ __html: post.html }} />
-      </BlogPostContainer>
+      <Content>
+        <ScrollProgressDivContainer>
+          <ScrollProgressDiv percentScrolled={percentScrolled} />
+        </ScrollProgressDivContainer>
+        <BlogPostContainer>
+          <BlogPostTitle>{post.frontmatter.title}</BlogPostTitle>
+          <BlogInfo>
+            <BlogPostDate>
+              {dayjs(post.frontmatter.createdTime).format('MMM D, YYYY')}
+            </BlogPostDate>
+            <BlogPostReadTime>{`${post.timeToRead} min read`}</BlogPostReadTime>
+          </BlogInfo>
+          <ImageContainer>
+            <BlogPostImage src={post.frontmatter.image} />
+          </ImageContainer>
+          <BlogPostContent dangerouslySetInnerHTML={{ __html: post.html }} />
+        </BlogPostContainer>
+      </Content>
     </Layout>
   );
 }
@@ -113,7 +121,6 @@ export const postQuery = graphql`
       frontmatter {
         title
         image
-        author
         createdTime
       }
     }

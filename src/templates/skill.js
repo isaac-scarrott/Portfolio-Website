@@ -18,13 +18,23 @@ const animationIn = keyframes`
   to { opacity: 1; }
 `;
 
+const scaleDown = keyframes`
+  0% {transform: scale(1)}
+  50% {transform: scale(0);}
+  100% {transform: scale(0);}
+`;
+
 export const SkillContainer = styled(SkillsContainer)`
   flex-direction: column;
+    a {
+      animation: none;
+    }
 `;
 
 export const SkillDescription = styled.div`
   animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
   padding: 0 10%;
+  margin-top: 5%;
 `;
 
 export const CloseButton = styled.button`
@@ -61,14 +71,22 @@ const SkillTitleContainer = styled(SkillsTitleContainer)`
 `;
 
 const RelatedBlogPosts = styled.div`
-  animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
-
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 0px;
+  padding-right: 4%;
+  a div {
+    animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${scaleDown} ${transitionLengthString}`)} forwards;
+    width: 100%;
+  }
 `;
 
 export default function Skill({data}) {
   const [goingBackToPrevPage, setGoingBackToPrevPage] = useState(false);
 
-  const relatedBlogPosts = data.allMarkdownRemark.nodes.filter((blogPosts) => {
+  let relatedBlogPosts = data.allMarkdownRemark.nodes.filter((blogPosts) => {
     const tagsArray = blogPosts.frontmatter.tags.split(',');
     return tagsArray.includes(data.skills.name.toLowerCase());
   });
@@ -99,13 +117,19 @@ export default function Skill({data}) {
           <SkillDescription open={!goingBackToPrevPage}>
             {data.skills.description}
           </SkillDescription>
-          <BlogPostTile
-            path={relatedBlogPosts[0].frontmatter.path}
-            image={relatedBlogPosts[0].frontmatter.image}
-            title={relatedBlogPosts[0].frontmatter.title}
-            timeToRead={relatedBlogPosts[0].timeToRead}
-            date={relatedBlogPosts[0].frontmatter.createdTime}
-          />
+          <RelatedBlogPosts open={!goingBackToPrevPage}>
+            {relatedBlogPosts.map(relatedBlogPost => {
+              return (
+                <BlogPostTile
+                  path={relatedBlogPost.frontmatter.path}
+                  image={relatedBlogPost.frontmatter.image}
+                  title={relatedBlogPost.frontmatter.title}
+                  timeToRead={relatedBlogPost.timeToRead}
+                  date={relatedBlogPost.frontmatter.createdTime}
+                />
+              );
+            })}
+          </RelatedBlogPosts>
         </SkillContainer>
       </PageContainer>
     </Layout>

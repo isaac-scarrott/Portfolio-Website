@@ -10,7 +10,7 @@ import colours from '../styles/colours';
 
 import cv from '../cv.pdf'
 
-const LinksContainer = styled.div`
+export const LinksContainer = styled.div`
   position: absolute;
   display: flex;
   align-items: center;

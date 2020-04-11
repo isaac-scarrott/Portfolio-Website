@@ -32,7 +32,7 @@ function TypedAnimation() {
         {typewriteData.map((typewriteItem, index) => {
           return (
             <TypeItInput
-              key={String(index)}
+              // key={String(index)}
               backspace={typewriteItem.backspace}
               delay={typewriteItem.delay}
               duration={typewriteItem.duration}

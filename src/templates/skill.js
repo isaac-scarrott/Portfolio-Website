@@ -6,6 +6,7 @@ import colours from '../styles/colours';
 import styled, {keyframes, css} from 'styled-components';
 import PageContainer from '../styles/PageContainer';
 import {SkillsTitleContainer} from '../components/SkillsScreen'
+import BlogPostTile from '../components/BlogPostTile';
 
 const animation = keyframes`
   from { opacity: 1; }
@@ -59,8 +60,18 @@ const SkillTitleContainer = styled(SkillsTitleContainer)`
   animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
 `;
 
+const RelatedBlogPosts = styled.div`
+  animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
+
+`;
+
 export default function Skill({data}) {
   const [goingBackToPrevPage, setGoingBackToPrevPage] = useState(false);
+
+  const relatedBlogPosts = data.allMarkdownRemark.nodes.filter((blogPosts) => {
+    const tagsArray = blogPosts.frontmatter.tags.split(',');
+    return tagsArray.includes(data.skills.name.toLowerCase());
+  });
 
   useEffect(() => {
     document.body.style.overflowY = 'hidden';
@@ -88,9 +99,13 @@ export default function Skill({data}) {
           <SkillDescription open={!goingBackToPrevPage}>
             {data.skills.description}
           </SkillDescription>
-          <SkillDescription open={!goingBackToPrevPage}>
-            (Related blog post to be included soon)
-          </SkillDescription>
+          <BlogPostTile
+            path={relatedBlogPosts[0].frontmatter.path}
+            image={relatedBlogPosts[0].frontmatter.image}
+            title={relatedBlogPosts[0].frontmatter.title}
+            timeToRead={relatedBlogPosts[0].timeToRead}
+            date={relatedBlogPosts[0].frontmatter.createdTime}
+          />
         </SkillContainer>
       </PageContainer>
     </Layout>
@@ -98,10 +113,23 @@ export default function Skill({data}) {
 }
 
 export const postQuery = graphql`
-  query SkillByPath($path: String!) {
+  query SkillByPathAndAllBlogPosts($path: String!) {
     skills(path: { eq: $path }) {
       name
       description
+    }
+
+    allMarkdownRemark {
+      nodes {
+        timeToRead
+        frontmatter {
+          title
+          image
+          createdTime
+          path
+          tags
+        }
+      }
     }
   }
 `;

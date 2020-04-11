@@ -1,10 +1,10 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
-import { useStaticQuery, graphql, Link } from 'gatsby';
-import dayjs from 'dayjs';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import PageContainer from '../styles/PageContainer';
 import colours from '../styles/colours'
+import BlogPostTile from './BlogPostTile';
 
 const animation = keyframes`
   from {opacity: 0;}
@@ -31,49 +31,6 @@ export const BlogEntriesContainer = styled.div`
   grid-template-rows: 50% 50%;
   flex-grow: 1;
   width: 80%;
-`;
-
-export const BlogEntryContainer = styled.div`
-  margin: 5%;
-  transition: transform 0.2s;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.01);
-  }
-
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 70%;
-    height: 70%;
-    border-radius: 2px;
-    box-shadow: 0px 30px 48px -18px rgba(0,0,0,0.33);
-  }
-
-  h3 {
-    display: flex;
-    align-items: center;
-    height: '20%';
-    margin: 0 10px;
-  }
-
-  p {
-    display: 'flex';
-    align-items: center;
-    height: '10%';
-    margin: 0 10px;
-    color: ${colours.darkGray};
-    font-size: 15px;
-    font-weight: 600;
-  }
-`;
-
-export const BlogEntryTimeToRead = styled.p`
-  float: left;
-`;
-
-export const BlogEntryDate = styled.p`
-  float: right;
 `;
 
 const comingSoonData = {
@@ -124,20 +81,14 @@ export default function BlogPage() {
       <h1>Blog</h1>
       <BlogEntriesContainer>
         {blogPostWithComingSoon.map(({ node }, index) => {
-          const formattedDate = node.frontmatter.createdTime
-            ? dayjs(node.frontmatter.createdTime).format('MMM YYYY')
-            : '';
-          const timeToReadString = node.timeToRead ? `${node.timeToRead} min read` : '';
-
           return (
-            <Link to={node.frontmatter.path} key={node.frontmatter.path + index}>
-              <BlogEntryContainer>
-                <img src={node.frontmatter.image} alt={node.frontmatter.title + ' image'}/>
-                <h3>{node.frontmatter.title}</h3>
-                <BlogEntryTimeToRead>{timeToReadString}</BlogEntryTimeToRead>
-                <BlogEntryDate>{formattedDate}</BlogEntryDate>
-              </BlogEntryContainer>
-            </Link>
+            <BlogPostTile
+              path={node.frontmatter.path}
+              image={node.frontmatter.image}
+              title={node.frontmatter.title}
+              timeToRead={node.timeToRead}
+              date={node.frontmatter.createdTime}
+            />
           );
         })}
       </BlogEntriesContainer>

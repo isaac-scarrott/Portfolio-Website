@@ -5,10 +5,15 @@ import styled, {keyframes} from 'styled-components';
 import Layout from '../components/Layout';
 import dayjs from 'dayjs';
 import colours from '../styles/colours';
+import LinksBarTemplate from '../components/LinksBar';
 
 const animation = keyframes`
   from {opacity: 0;}
   to {opacity: 1;}
+`;
+
+const LinksBar = styled(LinksBarTemplate)`
+
 `;
 
 const Content = styled.div`
@@ -109,6 +114,7 @@ export default function Blog({ data }) {
           </ImageContainer>
           <BlogPostContent dangerouslySetInnerHTML={{ __html: post.html }} />
         </BlogPostContainer>
+        <LinksBar/>
       </Content>
     </Layout>
   );

@@ -1,26 +1,100 @@
 ---
-path: '/do-react-refs-matter'
+path: '/do-react-keys-matter'
 title: 'Why Shouldnt You Use Index For A React Key Prop ... And Why You Shouldnt Care'
 createdTime: '2020-04-04T15:45:36.496Z'
 image: 'https://hackernoon.com/hn-images/1*sby1Jwafc8jkPSbCfAgTnw.jpeg'
+tags: 'reactjs,javascript,keys'
 ---
+<p><b>IMPORTANT DISCLAIMER:</b> I absolutely, 100%, without a doubt believe that you should use  unique, consistent keys when rendering a list of components. Now that's out the way I am going to attempt to justify my click baity title.</p>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis eros iaculis, lobortis enim at, sollicitudin orci. Fusce consectetur arcu a mi egestas, ut ultricies turpis elementum. Morbi porttitor sed est rutrum sagittis. Quisque accumsan lectus ac finibus euismod. Aliquam et augue non massa convallis porta et eu risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum et quam ac risus lacinia rhoncus facilisis vel felis. Integer nisl est, molestie non ex gravida, placerat rutrum ex. Fusce varius faucibus felis at dignissim. Etiam id fermentum ligula. Donec sed porta ligula. Etiam mi odio, dignissim non tincidunt ut, ullamcorper in justo. Aliquam erat volutpat.
+<h2>Some Context On Indexes and Keys</h2>
 
-Cras quis turpis eu nisi fringilla porta. Sed dictum, diam sed volutpat consectetur, risus massa lacinia enim, ac dictum est tellus vitae augue. Aliquam elit urna, finibus non mi vitae, pulvinar euismod turpis. Vestibulum efficitur finibus risus, in interdum dolor tempor et. Praesent viverra dui est, quis fermentum tellus tristique et. Morbi bibendum, quam sed cursus laoreet, urna quam malesuada orci, quis porttitor enim felis non enim. Etiam venenatis accumsan laoreet.
+<p>When mapping over elements in a React component like so:</p>
 
-Mauris quis lectus luctus ante condimentum ullamcorper. Mauris id aliquet tortor. Curabitur rhoncus, orci at semper tempor, libero enim mollis lacus, at dignissim erat libero id nunc. Nam sit amet vestibulum odio. Integer sed ligula eget elit accumsan consequat. Pellentesque sodales velit a tincidunt blandit. Sed rhoncus velit turpis, quis interdum magna accumsan sit amet. Cras nec consequat ipsum. Nunc tempus turpis ac sem sollicitudin, vel cursus neque cursus. In hac habitasse platea dictumst. In rhoncus malesuada massa ut ultricies. Etiam id arcu semper orci fermentum consectetur.
+```jsx
+function NavLinks({linksArray}) {
+  return linksArray.map((link) => (
+    <a href={link}/>
+  ));
+}
+```
 
-Vivamus odio arcu, tincidunt ut molestie nec, ornare in ligula. Suspendisse facilisis lorem eros, et ultrices nisi lobortis vel. Nullam tempus quis turpis in vehicula. Donec sagittis dolor eget ex egestas, eu iaculis metus laoreet. Integer volutpat efficitur sodales. Donec vel lacinia eros. Ut at velit vehicula, imperdiet velit nec, blandit mi. Etiam augue leo, efficitur sed erat ut, rutrum aliquam mauris. Nunc tincidunt luctus augue. Cras dictum congue lectus in auctor. Cras lacinia erat vulputate, commodo nisl eget, ultrices augue. Sed id iaculis leo. Aliquam id quam mi. Praesent a dui vestibulum arcu lobortis molestie. Mauris pulvinar lectus id sapien tempus laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+<p>You may have got the following warning in the console:</p>
 
-Vestibulum eget sollicitudin odio. Morbi aliquet ornare dapibus. Ut ultricies laoreet mauris consectetur ornare. Curabitur viverra, elit sit amet molestie interdum, lorem felis laoreet lectus, vitae accumsan turpis dolor eget est. Praesent facilisis nisl sit amet purus efficitur gravida. Pellentesque sodales lacinia pretium. Sed imperdiet sapien vel lacus convallis ultrices.
+<img src='key_warning.png'/>
 
-Etiam ullamcorper tellus non ligula rhoncus vestibulum. Morbi sagittis metus justo, quis faucibus justo tincidunt non. Nam nisl felis, dictum sagittis tincidunt id, porttitor eget massa. Praesent sed ipsum quis libero malesuada pulvinar et et risus. Suspendisse quis dolor et leo ultrices molestie at nec dui. In efficitur dictum condimentum. Pellentesque posuere nulla eu dui rhoncus vulputate non ut risus. Nulla nec risus consectetur, posuere lorem blandit, malesuada nunc. Duis sollicitudin dolor ut quam interdum vestibulum. Maecenas eget leo eu lacus ultrices malesuada. Sed semper nulla ac rutrum imperdiet. Sed elementum elementum rhoncus.
+<p>React is asking for you to give each component in an array of components a 'unique key prop'. So you could simply add this onto the following bit of code right?</p>
 
-Duis suscipit orci vel molestie accumsan. Praesent gravida magna sed neque tristique, sed ultrices purus venenatis. Curabitur volutpat mollis augue, sit amet molestie dui tincidunt ac. Sed sollicitudin ligula elementum neque ornare vulputate. Suspendisse non nibh id leo porttitor pulvinar. Nam at porttitor felis, vitae varius lacus. Vestibulum nec euismod mi.
+```jsx
+function NavLinks({linksArray}) {
+  return linksArray.map((link, index) => (
+    <a href={link} key={index}/>
+  ));
+}
+```
 
-Fusce gravida lectus dui. In neque justo, dictum at vestibulum pretium, mattis non ex. Nunc dictum ex metus, non tincidunt felis volutpat at. Quisque nec ex at sem vehicula lacinia quis eget felis. Suspendisse vehicula egestas fringilla. Nunc vel nisl rhoncus, vehicula ligula a, cursus leo. Pellentesque maximus hendrerit dolor at posuere. Suspendisse vestibulum, orci ut dapibus ultricies, risus est interdum augue, nec euismod est felis a ex. Donec nec iaculis elit.
+<p>Well according to the <a href='https://reactjs.org/docs/lists-and-keys.html'>React documentation on list and keys</a> this is not the way you do it and is considered an <a href='https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318'>anti-pattern</a>. The correct way to do it would be something similar to as follows.<p>
 
-Nunc consequat lacus sed odio ultricies, in rutrum elit porttitor. Duis leo elit, euismod eu arcu ultricies, hendrerit tristique arcu. Etiam quis vulputate lectus, nec tristique diam. Vestibulum in dolor nec felis sodales ultricies at dapibus enim. Nunc ultricies est vel laoreet tristique. Nulla lacus orci, pretium vitae congue non, vulputate semper mi. Donec at feugiat eros.
+```jsx
+function NavLinks({linksArray}) {
+  return linksArray.map((link) => (
+    <a href={link} key={link}/>
+  ));
+}
+```
 
-Integer nunc leo, ornare a erat in, elementum ullamcorper justo. Nulla mollis a erat elementum pulvinar. Quisque felis sapien, dapibus vestibulum lacinia ut, laoreet vitae enim. Suspendisse finibus lobortis quam id convallis. Suspendisse faucibus massa nec purus vestibulum, ac iaculis orci volutpat. Morbi ut vehicula erat, vitae luctus turpis. Etiam quis augue leo.
+<p>This post will investigate when you should and shouldn't care about the key prop and give some insight into why there is such a big fuss around the key prop and indexes.</p>
+
+<h2>Why You Should Care</h2>
+
+<p>The main reasons for React reiterating so much not to use index as a key is for two main reasons; performance on render and reduce unwanted side effects.</p>
+
+<p>In regards to performance <a href='https://reactjs.org/docs/reconciliation.html'>React has made some optimisations</a> to take a state of the art tree diffing algorithm, which has a complexity in order of  O(n3), to a complexity of O(n). This is because React allows developers to pass other parameters or 'props' to the tree so it can create some optimisations. The best way to show the optimisation is through code. So, in our first code snippet we have a div containing 3 components rendered using a map of the input array. For context we can say that &lt;Post/&gt; below post has a big render tree. Whether we have used the index or the value to render the list of components is irrelevant in the first code snippet.<p>
+
+```jsx
+// input [1,2,3]
+<div>
+  <Post key='1'>1</Post>
+  <Post key='2'>2</Post>
+  <Post key='3'>3</Post>
+</div>
+```
+
+<p>Let's say that the user has filtered the input data to now include a number 4 at index position 1 (for anyone who uses MATLAB index position 2...not that anyone does). We want to reduce the amount of re renders the DOM has to perform on the whole component tree. In the code snippet I denoted ✅ for a (re)render (these are bad) and a 🚫 if no re-render is required.</p>
+
+```jsx
+// input [1,4,2,3]
+// rendered using index
+<div>
+  <Post key='1'>1</Post> // 🚫 rerender
+  <Post key='2'>4</Post> // ✅ render
+  <Post key='3'>2</Post> // ✅ rendered
+  <Post key='4'>3</Post> // ✅ rendered
+</div>
+
+// rendered using value
+<div>
+  <Post key='1'>1</Post> // 🚫 rerender
+  <Post key='4'>4</Post> // ✅ render
+  <Post key='2'>2</Post> // 🚫 rerender
+  <Post key='3'>3</Post> // 🚫 rerender
+</div>
+```
+
+<p>Straight away we can see that the number of re-renders using the index as oppose to a unique ID is 3x the amount.  In theory our application would be 3x slower, however in practice it would be no way near this amount due to the other optimisations in the diffing and rendering algorithm. This is because everything with an index above the index we insert our component into has had to re-render due to the key being passed. Just imagine if this was a list of 30 items and we entered a new component in near the start! So just by choosing to use something other than index we have improved our number of re-renders.</p>
+
+<p>Now you might be saying 'I only have up to 5 items in my list, the performance benefit would be negligible' and you would be 100% right. However as mentioned earlier not using a consistent unique key could result in unexpected side effects could occur such as the mix up in elements on a mutation of the list being mapped. The best example I have seen on this is in this <a href='https://jsbin.com/wohima/edit?output'>JS Bin</a>. When you load up the JS Bin and enter some information into the input boxes nothing out the ordinary happens.</p>
+
+<img src='before_reordering.png'/>
+
+<p>However if we add an item to the beginning of the list of dangerous items, we see that the labels have been ordered correctly, however the inputs haven't.</p>
+
+<img src='after_reordering.png'/>
+
+<h2>Other Side Of Explanation</h2>
+
+<p>Now to address the click baity question of the title - why you shouldn't care? To be honest I worded that poorly and should be said more as when shouldn't I care as it is more the context to decide if you should care or not. I'm going to keep this short. You should only care if your list is always going to be static. So for example on my website homepage the blog posts are rendered using a map and the ordering of this is never doing to change in the lifecycle of the components and therefore it would be 'safe' to use it on this component - I have used a unique ID to render these I might add.</p>
+
+<h2>Wrapping Up</h2>
+
+<p>So as sort of a TLDR - always use a unique static key for each mapped component other than if you have no choice but to use the index and the data is static.</p>

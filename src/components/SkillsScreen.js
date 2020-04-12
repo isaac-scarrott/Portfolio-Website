@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { FaReact, FaAws, FaGitAlt } from 'react-icons/fa';
 import { DiNodejs, DiPhp } from 'react-icons/di';
 import { navigate } from 'gatsby';
+import device from '../styles/mediaQueryStuff';
 
 import PageContainer from '../styles/PageContainer';
 
@@ -39,6 +40,12 @@ export const SkillsContainer = styled.div`
   justify-content: space-evenly;
   margin: auto 0;
   transition: ${transitionLengthString} ease;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    background-color: transparent;
+    color: ${props => props.theme.colours.primary};
+  }
 
   a {
     animation: ${props => (props.open ? animation : animationIn)} ${transitionLengthString} forwards;

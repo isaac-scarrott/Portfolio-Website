@@ -4,10 +4,7 @@ import styled from 'styled-components';
 
 import LinksBar from './LinksBar';
 import PageContainer from '../styles/PageContainer';
-
-// const TypeItStyle = {
-
-// };
+import device from '../styles/mediaQueryStuff';
 
 const TypeItWrapper = styled.div`
   margin: auto;
@@ -15,6 +12,9 @@ const TypeItWrapper = styled.div`
   font-size: 50px;
   text-shadow: 0px 20px 30px rgba(89, 127, 124, 0.8);
   font-weight: light;
+  @media ${device.mobile} {
+    font-size: 20px;
+  }
 `;
 
 const typewriteData = [

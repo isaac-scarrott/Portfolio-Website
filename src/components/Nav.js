@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+import device from '../styles/mediaQueryStuff';
+
 const animateNavLinks = keyframes`
   0% { -webkit-transform: scale(0.0); }
   30% { -webkit-transform: scale(0.0); }
@@ -47,6 +49,9 @@ export const ExpandingCircle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media ${device.mobile} {
+      width: ${props => (props.navOpen ? '250%' : '200px')};
+  }
 `;
 
 export const Circle = styled.div`

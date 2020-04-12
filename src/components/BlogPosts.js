@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import PageContainer from '../styles/PageContainer';
 import BlogPostTile from './BlogPostTile';
+import device from '../styles/mediaQueryStuff';
 
 const animation = keyframes`
   from {opacity: 0;}
@@ -30,6 +31,11 @@ export const BlogEntriesContainer = styled.div`
   grid-template-rows: 50% 50%;
   flex-grow: 1;
   width: 80%;
+  @media ${device.mobile} {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    left: 5%;
+  }
 `;
 
 const comingSoonData = {

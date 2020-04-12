@@ -5,6 +5,7 @@ import styled, {keyframes} from 'styled-components';
 import Layout from '../components/Layout';
 import dayjs from 'dayjs';
 import LinksBarTemplate from '../components/LinksBar';
+import device from '../styles/mediaQueryStuff';
 
 const animation = keyframes`
   from {opacity: 0;}
@@ -24,10 +25,16 @@ const BlogPostContainer = styled.div`
   flex-direction: column;
   padding: 0 20%;
   align-items: center;
+  @media ${device.mobile} {
+    padding: 0 5%;
+  }
 `;
 
 const BlogPostTitle = styled.h1`
   width: 55%;
+  @media ${device.mobile} {
+    width: 100%;
+  }
 `;
 
 const BlogInfo = styled.div`
@@ -58,6 +65,9 @@ const BlogPostImage = styled.img`
 const BlogPostContent = styled.div`
   width: 70%;
   line-height: 1.7;
+  @media ${device.mobile} {
+    width: 100%;
+  }
 `;
 
 const ScrollProgressDivContainer = styled.div`
@@ -69,6 +79,9 @@ const ScrollProgressDivContainer = styled.div`
   left: 10%;
   top: 50%;
   transform: translateY(-50%);
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 const ScrollProgressDiv = styled.div`

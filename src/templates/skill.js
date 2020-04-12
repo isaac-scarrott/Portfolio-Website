@@ -53,7 +53,7 @@ export const CloseButton = styled.button`
     left: 23px;
     height: 40px;
     width: 5px;
-    background-color: ${props => props.theme.colours.background};
+  background-color: ${props => props.theme.colours.background};
     border-radius: 10px;
   }
   &:before {

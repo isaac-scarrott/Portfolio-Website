@@ -7,6 +7,7 @@ import {
 } from 'react-icons/ti';
 
 import cv from '../cv.pdf'
+import device from '../styles/mediaQueryStuff';
 
 export const LinksContainer = styled.div`
   position: absolute;
@@ -18,6 +19,10 @@ export const LinksContainer = styled.div`
   width: 400px;
   color: ${props => props.theme.colours.primary};
 
+  @media ${device.mobile} {
+    width: 40%;
+    left: 5%;
+  }
   a {
     transition: transform 0.2s;
     text-decoration: none;

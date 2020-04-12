@@ -11,6 +11,7 @@ import PageContainer from '../styles/PageContainer';
 import { darkThemeColours, lightThemeColours } from '../styles/colours';
 import { calulateSunriseAndSunet } from '../utils/calculateSunriseSunset';
 import { useEffect } from 'react';
+import dayjs from 'dayjs';
 
 export function GlobalStyles({ isDarkMode }) {
   function GetPrismTheme(isDarkMode) {
@@ -74,7 +75,7 @@ function useDarkMode() {
     async function setDarkModeIfNight() {
       const { sunrise, sunset } = await calulateSunriseAndSunet();
       const dateTimeNow = new Date();
-      if (dateTimeNow <= sunrise && dateTimeNow >= sunset) {
+      if (dateTimeNow <= dayjs(sunrise).add(1, 'day') && dateTimeNow >= sunset) {
         // Updates state but not localStorage
         setIsDarkMode(true);
       }

@@ -6,8 +6,6 @@ import {
   TiSocialLinkedinCircular,
 } from 'react-icons/ti';
 
-import colours from '../styles/colours';
-
 import cv from '../cv.pdf'
 
 export const LinksContainer = styled.div`
@@ -18,7 +16,7 @@ export const LinksContainer = styled.div`
   align-self: start;
   height: 100px;
   width: 400px;
-  color: ${colours.primary};
+  color: ${props => props.theme.colours.primary};
 
   a {
     transition: transform 0.2s;

@@ -5,7 +5,6 @@ import { DiNodejs, DiPhp } from 'react-icons/di';
 import { navigate } from 'gatsby';
 
 import PageContainer from '../styles/PageContainer';
-import colours from '../styles/colours';
 
 export const transitionLengthString = '0.5s'
 
@@ -25,7 +24,7 @@ export const SkillsTitleContainer = styled.h1`
   position: absolute;
   display: flex;
   align-items: center;
-  color: ${colours.black};
+  color: ${props => props.theme.colours.text};
   animation: ${props => (props.open ? animation : animationIn)} ${transitionLengthString} forwards;
 `;
 
@@ -33,8 +32,8 @@ export const SkillsContainer = styled.div`
   display: flex;
   padding: 1% 0;
   align-items: center;
-  background-color: ${colours.primary};
-  color: ${colours.offWhite};
+  background-color: ${props => props.theme.colours.primary};
+  color: ${props => props.theme.colours.white};
   width: 100%;
   height: ${props => (props.open ? '100vh' : '10%')};
   justify-content: space-evenly;

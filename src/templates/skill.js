@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { graphql } from 'gatsby';
 import { SkillsContainer, transitionLengthString } from '../components/SkillsScreen';
 import { LayoutWithPageContainer as Layout } from '../components/Layout';
-import colours from '../styles/colours';
 import styled, {keyframes, css} from 'styled-components';
 import PageContainer from '../styles/PageContainer';
 import {SkillsTitleContainer} from '../components/SkillsScreen'
@@ -54,7 +53,7 @@ export const CloseButton = styled.button`
     left: 23px;
     height: 40px;
     width: 5px;
-    background-color: ${colours.offWhite};
+    background-color: ${props => props.theme.colours.background};
     border-radius: 10px;
   }
   &:before {
@@ -66,7 +65,7 @@ export const CloseButton = styled.button`
 `;
 
 const SkillTitleContainer = styled(SkillsTitleContainer)`
-  color: ${colours.offWhite};
+  color: ${props => props.theme.colours.background};
   animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
 `;
 

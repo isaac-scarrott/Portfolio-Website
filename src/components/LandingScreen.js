@@ -4,17 +4,17 @@ import styled from 'styled-components';
 
 import LinksBar from './LinksBar';
 import PageContainer from '../styles/PageContainer';
-import colours from '../styles/colours';
 
-const TypeItStyle = {
-  color: colours.black,
-  fontSize: '50px',
-  textShadow: '0px 20px 30px rgba(89, 127, 124, 0.8)',
-  fontWeight: 'light'
-};
+// const TypeItStyle = {
+
+// };
 
 const TypeItWrapper = styled.div`
   margin: auto;
+  color: ${props => props.theme.colours.text};
+  font-size: 50px;
+  text-shadow: 0px 20px 30px rgba(89, 127, 124, 0.8);
+  font-weight: light;
 `;
 
 const typewriteData = [
@@ -28,11 +28,11 @@ const typewriteData = [
 function TypedAnimation() {
   return (
     <TypeItWrapper>
-      <TypeIt loop style={TypeItStyle}>
+      <TypeIt loop>
         {typewriteData.map((typewriteItem, index) => {
           return (
             <TypeItInput
-              // key={String(index)}
+              key={String(index)}
               backspace={typewriteItem.backspace}
               delay={typewriteItem.delay}
               duration={typewriteItem.duration}

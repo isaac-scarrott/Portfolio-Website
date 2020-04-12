@@ -4,7 +4,6 @@ import styled, {keyframes} from 'styled-components';
 
 import Layout from '../components/Layout';
 import dayjs from 'dayjs';
-import colours from '../styles/colours';
 import LinksBarTemplate from '../components/LinksBar';
 
 const animation = keyframes`
@@ -33,7 +32,7 @@ const BlogPostTitle = styled.h1`
 
 const BlogInfo = styled.div`
   display: inline-flex;
-  color: ${colours.darkGray};
+  color: ${props => props.theme.colours.darkGray};
   justify-content: space-between;
   font-size: 8px;
   width: 55%;
@@ -66,17 +65,16 @@ const ScrollProgressDivContainer = styled.div`
   display: absolute;
   height: 500px;
   width: 2px;
-  background-color: ${colours.lightGray};
+  background-color: ${props => props.theme.colours.gray};
   left: 10%;
   top: 50%;
   transform: translateY(-50%);
 `;
 
 const ScrollProgressDiv = styled.div`
-  height: ${(props) => props.percentScrolled}%;
+  height: ${props => props.percentScrolled}%;
   width: 2px;
-  background-color: ${colours.black};
-
+  background-color: ${props => props.theme.colours.text};
 `;
 
 export default function Blog({ data }) {

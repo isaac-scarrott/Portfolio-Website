@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import dayjs from 'dayjs';
 import { Link } from 'gatsby';
-import colours from '../styles/colours';
 
 export const BlogEntryContainer = styled.div`
   margin: 5%;
@@ -33,7 +32,7 @@ export const BlogEntryContainer = styled.div`
     align-items: center;
     height: '10%';
     margin: 0 10px;
-    color: ${colours.darkGray};
+    color: ${props => props.theme.colours.darkGray};
     font-size: 15px;
     font-weight: 600;
   }

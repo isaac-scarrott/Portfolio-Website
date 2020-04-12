@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-import colours from './colours'
-
 export default createGlobalStyle`
   html, body, #root {
     height: 100%;
@@ -10,12 +8,12 @@ export default createGlobalStyle`
   }
 
   body {
-    color: ${colours.black};
+    color: ${props => props.theme.colours.text};
     -webkit-tap-highlight-color: transparent;
     line-height: 1.2;
     font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;
-    background-color: ${colours.offWhite};
+    background-color: ${props => props.theme.colours.background};
     overflow-x: hidden;
   }
 

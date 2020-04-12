@@ -1,1 +1,1 @@
-require('prism-themes/themes/prism-duotone-sea.css');
+require('prism-themes/themes/prism-xonokai.css');

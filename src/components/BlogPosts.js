@@ -3,7 +3,6 @@ import styled, {keyframes} from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import PageContainer from '../styles/PageContainer';
-import colours from '../styles/colours'
 import BlogPostTile from './BlogPostTile';
 
 const animation = keyframes`
@@ -19,7 +18,7 @@ const BlogPageContainer = styled(PageContainer)`
   h1 {
     height: 5%;
     display: flex;
-    color: ${colours.black};
+    color: ${props => props.theme.colours.text};
     margin-bottom: 0;
     text-shadow: 0px 15px 20px rgba(89, 127, 124, 0.6);
   }

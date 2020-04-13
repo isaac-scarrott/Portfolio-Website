@@ -9,7 +9,7 @@ import LightModePrismTheme from '../styles/prism-duotone-light';
 import DarkModePrismTheme from '../styles/prism-xonokai';
 import PageContainer from '../styles/PageContainer';
 import { darkThemeColours, lightThemeColours } from '../styles/colours';
-import { calulateSunriseAndSunet } from '../utils/calculateSunriseSunset';
+import { calculateSunriseAndSunset } from '../utils/calculateSunriseSunset';
 import { useEffect } from 'react';
 import dayjs from 'dayjs';
 
@@ -73,9 +73,12 @@ function useDarkMode() {
     }
 
     async function setDarkModeIfNight() {
-      const { sunrise, sunset } = await calulateSunriseAndSunet();
+      const { sunrise, sunset } = await calculateSunriseAndSunset();
       const dateTimeNow = new Date();
-      if (dateTimeNow <= dayjs(sunrise).add(1, 'day') && dateTimeNow >= sunset) {
+      if (
+        dateTimeNow <= dayjs(sunrise).add(1, 'day') &&
+        dateTimeNow >= sunset
+      ) {
         // Updates state but not localStorage
         setIsDarkMode(true);
       }

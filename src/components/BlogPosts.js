@@ -50,7 +50,7 @@ const comingSoonData = {
   }
 };
 
-function getBlogPostsWithComingSoonfillers(blogPosts) {
+function getBlogPostsWithComingSoonFillers(blogPosts) {
   let comingSoonBlogPosts = [];
 
   if (blogPosts?.length < 4) {
@@ -79,7 +79,7 @@ export default function BlogPage() {
     }
   `);
 
-  const blogPostWithComingSoon = getBlogPostsWithComingSoonfillers(data.allMarkdownRemark.edges);
+  const blogPostWithComingSoon = getBlogPostsWithComingSoonFillers(data.allMarkdownRemark.edges);
 
   return (
     <BlogPageContainer>

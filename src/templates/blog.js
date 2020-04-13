@@ -94,7 +94,7 @@ export default function Blog({ data }) {
   const { markdownRemark: post } = data;
   const [percentScrolled, setPercentScrolled] = React.useState(0);
 
-  function calclateAndSetPercentScrolled() {
+  function calculateAndSetPercentScrolled() {
     const htmlElement = document.documentElement;
     setPercentScrolled(
       (htmlElement.scrollTop / (htmlElement.scrollHeight - htmlElement.clientHeight)) * 100
@@ -102,8 +102,8 @@ export default function Blog({ data }) {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', calclateAndSetPercentScrolled);
-    return () => window.removeEventListener('scroll', calclateAndSetPercentScrolled);
+    window.addEventListener('scroll', calculateAndSetPercentScrolled);
+    return () => window.removeEventListener('scroll', calculateAndSetPercentScrolled);
   }, [])
 
   return (

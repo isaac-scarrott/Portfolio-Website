@@ -1,5 +1,5 @@
 import React from 'react';
-import TypeIt, {TypeItInput} from '@isaac.scarrott/react-type-it';
+import TypeIt, { TypeItInput } from '@isaac.scarrott/react-type-it';
 import styled from 'styled-components';
 
 import LinksBar from './LinksBar';
@@ -19,10 +19,15 @@ const TypeItWrapper = styled.div`
 
 const typewriteData = [
   { text: `Hi, I'm Isaac Scarrott`, backspace: 0, delay: 0, duration: 1200 },
-  { text: "a software develoepr", backspace: 14, delay: 3000, duration: 2000 },
-  { text: "per", backspace: 3, delay: 250, duration: 500 },
-  { text: "feel free to have a look around :)", backspace: 24, delay: 3000, duration: 2000 },
-  { text: "", backspace: 0, delay: 3000, duration: 2000 }
+  { text: 'a software developer', backspace: 14, delay: 3000, duration: 2000 },
+  { text: 'per', backspace: 3, delay: 250, duration: 500 },
+  {
+    text: 'feel free to have a look around :)',
+    backspace: 24,
+    delay: 3000,
+    duration: 2000,
+  },
+  { text: '', backspace: 0, delay: 3000, duration: 2000 },
 ];
 
 function TypedAnimation() {
@@ -50,7 +55,7 @@ export default function LandingScreen() {
   return (
     <PageContainer>
       <LinksBar />
-      <TypedAnimation/>
+      <TypedAnimation />
     </PageContainer>
   );
 }

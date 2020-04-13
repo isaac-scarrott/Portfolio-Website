@@ -5,6 +5,7 @@ createdTime: '2020-04-04T15:45:36.496Z'
 image: 'https://hackernoon.com/hn-images/1*sby1Jwafc8jkPSbCfAgTnw.jpeg'
 tags: 'reactjs,javascript,keys'
 ---
+
 <p><b>IMPORTANT DISCLAIMER:</b> I absolutely, 100%, without a doubt believe that you should use  unique, consistent keys when rendering a list of components. Now that's out the way I am going to attempt to justify my click baity title.</p>
 
 <h2>Some Context On Indexes and Keys</h2>
@@ -12,10 +13,8 @@ tags: 'reactjs,javascript,keys'
 <p>When mapping over elements in a React component like so:</p>
 
 ```jsx
-function NavLinks({linksArray}) {
-  return linksArray.map((link) => (
-    <a href={link}/>
-  ));
+function NavLinks({ linksArray }) {
+  return linksArray.map(link => <a href={link} />);
 }
 ```
 
@@ -26,20 +25,16 @@ function NavLinks({linksArray}) {
 <p>React is asking for you to give each component in an array of components a 'unique key prop'. So you could simply add this onto the following bit of code right?</p>
 
 ```jsx
-function NavLinks({linksArray}) {
-  return linksArray.map((link, index) => (
-    <a href={link} key={index}/>
-  ));
+function NavLinks({ linksArray }) {
+  return linksArray.map((link, index) => <a href={link} key={index} />);
 }
 ```
 
 <p>Well according to the <a href='https://reactjs.org/docs/lists-and-keys.html'>React documentation on list and keys</a> this is not the way you do it and is considered an <a href='https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318'>anti-pattern</a>. The correct way to do it would be something similar to as follows.<p>
 
 ```jsx
-function NavLinks({linksArray}) {
-  return linksArray.map((link) => (
-    <a href={link} key={link}/>
-  ));
+function NavLinks({ linksArray }) {
+  return linksArray.map(link => <a href={link} key={link} />);
 }
 ```
 
@@ -49,14 +44,14 @@ function NavLinks({linksArray}) {
 
 <p>The main reasons for React reiterating so much not to use index as a key is for two main reasons; performance on render and reduce unwanted side effects.</p>
 
-<p>In regards to performance <a href='https://reactjs.org/docs/reconciliation.html'>React has made some optimisations</a> to take a state of the art tree diffing algorithm, which has a complexity in order of  O(n3), to a complexity of O(n). This is because React allows developers to pass other parameters or 'props' to the tree so it can create some optimisations. The best way to show the optimisation is through code. So, in our first code snippet we have a div containing 3 components rendered using a map of the input array. For context we can say that &lt;Post/&gt; below post has a big render tree. Whether we have used the index or the value to render the list of components is irrelevant in the first code snippet.<p>
+<p>In regards to performance <a href='https://reactjs.org/docs/reconciliation.html'>React has made some optimizations</a> to take a state of the art tree diffing algorithm, which has a complexity in order of  O(n3), to a complexity of O(n). This is because React allows developers to pass other parameters or 'props' to the tree so it can create some optimizations. The best way to show the optimizations is through code. So, in our first code snippet we have a div containing 3 components rendered using a map of the input array. For context we can say that &lt;Post/&gt; below post has a big render tree. Whether we have used the index or the value to render the list of components is irrelevant in the first code snippet.<p>
 
 ```jsx
 // input [1,2,3]
 <div>
-  <Post key='1'>1</Post>
-  <Post key='2'>2</Post>
-  <Post key='3'>3</Post>
+  <Post key="1">1</Post>
+  <Post key="2">2</Post>
+  <Post key="3">3</Post>
 </div>
 ```
 
@@ -81,7 +76,7 @@ function NavLinks({linksArray}) {
 </div>
 ```
 
-<p>Straight away we can see that the number of re-renders using the index as oppose to a unique ID is 3x the amount.  In theory our application would be 3x slower, however in practice it would be no way near this amount due to the other optimisations in the diffing and rendering algorithm. This is because everything with an index above the index we insert our component into has had to re-render due to the key being passed. Just imagine if this was a list of 30 items and we entered a new component in near the start! So just by choosing to use something other than index we have improved our number of re-renders.</p>
+<p>Straight away we can see that the number of re-renders using the index as oppose to a unique ID is 3x the amount.  In theory our application would be 3x slower, however in practice it would be no way near this amount due to the other optimizations in the diffing and rendering algorithm. This is because everything with an index above the index we insert our component into has had to re-render due to the key being passed. Just imagine if this was a list of 30 items and we entered a new component in near the start! So just by choosing to use something other than index we have improved our number of re-renders.</p>
 
 <p>Now you might be saying 'I only have up to 5 items in my list, the performance benefit would be negligible' and you would be 100% right. However as mentioned earlier not using a consistent unique key could result in unexpected side effects could occur such as the mix up in elements on a mutation of the list being mapped. The best example I have seen on this is in this <a href='https://jsbin.com/wohima/edit?output'>JS Bin</a>. When you load up the JS Bin and enter some information into the input boxes nothing out the ordinary happens.</p>
 

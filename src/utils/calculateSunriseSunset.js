@@ -1,7 +1,7 @@
 import SunCalc from 'suncalc';
 
-export async function calulateSunriseAndSunet() {
-  const coordinates = await getCorordinates();
+export async function calculateSunriseAndSunset() {
+  const coordinates = await getCoordinates();
 
   if (!coordinates) {
     return;
@@ -15,7 +15,7 @@ export async function calulateSunriseAndSunet() {
 
 }
 
-const getCorordinates = () => new Promise((resolve, reject) => {
+const getCoordinates = () => new Promise((resolve, reject) => {
     if (!navigator.geolocation) {
       return resolve(null);
     }

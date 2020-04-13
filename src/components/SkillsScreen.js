@@ -7,7 +7,7 @@ import device from '../styles/mediaQueryStuff';
 
 import PageContainer from '../styles/PageContainer';
 
-export const transitionLengthString = '0.5s'
+export const transitionLengthString = '0.5s';
 
 const animation = keyframes`
   from { opacity: 1; }
@@ -26,7 +26,8 @@ export const SkillsTitleContainer = styled.h1`
   display: flex;
   align-items: center;
   color: ${props => props.theme.colours.text};
-  animation: ${props => (props.open ? animation : animationIn)} ${transitionLengthString} forwards;
+  animation: ${props => (props.open ? animation : animationIn)}
+    ${transitionLengthString} forwards;
 `;
 
 export const SkillsContainer = styled.div`
@@ -48,30 +49,31 @@ export const SkillsContainer = styled.div`
   }
 
   a {
-    animation: ${props => (props.open ? animation : animationIn)} ${transitionLengthString} forwards;
+    animation: ${props => (props.open ? animation : animationIn)}
+      ${transitionLengthString} forwards;
     transition: transform 0.2s;
     &:hover {
       cursor: pointer;
       transform: scale(1.1);
 
       & > svg {
-        filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+        filter: drop-shadow(4px 4px 3px rgba(0, 0, 0, 0.7));
       }
     }
 
     svg {
       transition: filter 0.15s;
-      filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+      filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
     }
   }
 `;
 
 const skillsComponents = [
-  {linkTo: '/nodejs', component: DiNodejs},
-  {linkTo: '/reactjs', component: FaReact},
-  {linkTo: '/aws', component: FaAws},
-  {linkTo: '/git', component: FaGitAlt},
-  {linkTo: '/php', component: DiPhp}
+  { linkTo: '/nodejs', component: DiNodejs },
+  { linkTo: '/reactjs', component: FaReact },
+  { linkTo: '/aws', component: FaAws },
+  { linkTo: '/git', component: FaGitAlt },
+  { linkTo: '/php', component: DiPhp },
 ];
 
 export default function SkillsPage() {

@@ -6,23 +6,15 @@ import {
   TiSocialLinkedinCircular,
 } from 'react-icons/ti';
 
-import cv from '../cv.pdf'
-import device from '../styles/mediaQueryStuff';
+import cv from '../cv.pdf';
 
 export const LinksContainer = styled.div`
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  align-self: start;
-  height: 100px;
-  width: 400px;
-  color: ${props => props.theme.colours.primary};
+  width: 100%;
+  color: ${props => props.theme.colours.secondary};
 
-  @media ${device.mobile} {
-    width: 40%;
-    left: 5%;
-  }
   a {
     transition: transform 0.2s;
     text-decoration: none;
@@ -50,9 +42,9 @@ export default function LinksBar() {
       >
         <TiSocialLinkedinCircular size={40} />
       </a>
-        <a href={cv} target="_blank" rel="noopener noreferrer">
-          <TiDocumentText size={40} />
-        </a>
+      <a href={cv} target="_blank" rel="noopener noreferrer">
+        <TiDocumentText size={40} />
+      </a>
     </LinksContainer>
   );
 }

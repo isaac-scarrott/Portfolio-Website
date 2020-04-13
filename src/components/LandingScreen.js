@@ -1,21 +1,8 @@
 import React from 'react';
-import TypeIt, { TypeItInput } from '@isaac.scarrott/react-type-it';
-import styled from 'styled-components';
 
+import TypedAnimation from './TypedAnimation';
 import LinksBar from './LinksBar';
 import PageContainer from '../styles/PageContainer';
-import device from '../styles/mediaQueryStuff';
-
-const TypeItWrapper = styled.div`
-  margin: auto;
-  color: ${props => props.theme.colours.text};
-  font-size: 50px;
-  text-shadow: 0px 20px 30px rgba(89, 127, 124, 0.8);
-  font-weight: light;
-  @media ${device.mobile} {
-    font-size: 20px;
-  }
-`;
 
 const typewriteData = [
   { text: `Hi, I'm Isaac Scarrott`, backspace: 0, delay: 0, duration: 1200 },
@@ -30,32 +17,11 @@ const typewriteData = [
   { text: '', backspace: 0, delay: 3000, duration: 2000 },
 ];
 
-function TypedAnimation() {
-  return (
-    <TypeItWrapper>
-      <TypeIt loop>
-        {typewriteData.map((typewriteItem, index) => {
-          return (
-            <TypeItInput
-              key={String(index)}
-              backspace={typewriteItem.backspace}
-              delay={typewriteItem.delay}
-              duration={typewriteItem.duration}
-            >
-              {typewriteItem.text}
-            </TypeItInput>
-          );
-        })}
-      </TypeIt>
-    </TypeItWrapper>
-  );
-}
-
 export default function LandingScreen() {
   return (
     <PageContainer>
       <LinksBar />
-      <TypedAnimation />
+      <TypedAnimation typewriteData={typewriteData} loop={false} />
     </PageContainer>
   );
 }

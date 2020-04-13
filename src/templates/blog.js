@@ -4,16 +4,11 @@ import styled, {keyframes} from 'styled-components';
 
 import Layout from '../components/Layout';
 import dayjs from 'dayjs';
-import LinksBarTemplate from '../components/LinksBar';
 import device from '../styles/mediaQueryStuff';
 
 const animation = keyframes`
   from {opacity: 0;}
   to {opacity: 1;}
-`;
-
-const LinksBar = styled(LinksBarTemplate)`
-
 `;
 
 const Content = styled.div`
@@ -125,7 +120,6 @@ export default function Blog({ data }) {
           </ImageContainer>
           <BlogPostContent dangerouslySetInnerHTML={{ __html: post.html }} />
         </BlogPostContainer>
-        <LinksBar/>
       </Content>
     </Layout>
   );

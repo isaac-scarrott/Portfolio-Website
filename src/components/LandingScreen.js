@@ -1,7 +1,6 @@
 import React from 'react';
 
 import TypedAnimation from './TypedAnimation';
-import LinksBar from './LinksBar';
 import PageContainer from '../styles/PageContainer';
 
 const typewriteData = [
@@ -20,8 +19,7 @@ const typewriteData = [
 export default function LandingScreen() {
   return (
     <PageContainer>
-      <LinksBar />
-      <TypedAnimation typewriteData={typewriteData} loop={false} />
+      <TypedAnimation typewriteData={typewriteData} loop={true} />
     </PageContainer>
   );
 }

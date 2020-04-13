@@ -5,11 +5,16 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://isaacscarrott.co.uk/`,
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -43,6 +48,6 @@ module.exports = {
       options: {
         path: `${__dirname}/src/skills/`,
       },
-    }
+    },
   ],
 };

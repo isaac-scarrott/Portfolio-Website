@@ -18,7 +18,7 @@ export const lightThemeColours = {
     gray: '#cfcfc4', // Pastel Gray,
     lightGray: '#f1f1ee', //Desert Storm
     darkGray: '#adad9a', // Bud
-  }
+  },
 };
 
 export const darkThemeColours = {

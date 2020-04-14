@@ -52,6 +52,14 @@ export default function Nav({ isDarkMode, toggleIsDarkMode }) {
   const [navVisible, setNavVisible] = useState(true);
 
   useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      window.location.pathname.includes('/skills/')
+    ) {
+      setNavVisible(false);
+
+      return;
+    }
     window.addEventListener('scroll', () => {
       const currentScrollPos = window.pageYOffset;
 

@@ -69,11 +69,11 @@ export const SkillsContainer = styled.div`
 `;
 
 const skillsComponents = [
-  { linkTo: '/nodejs', component: DiNodejs },
-  { linkTo: '/reactjs', component: FaReact },
-  { linkTo: '/aws', component: FaAws },
-  { linkTo: '/git', component: FaGitAlt },
-  { linkTo: '/php', component: DiPhp },
+  { linkTo: '/skills/nodejs', component: DiNodejs },
+  { linkTo: '/skills/reactjs', component: FaReact },
+  { linkTo: '/skills/aws', component: FaAws },
+  { linkTo: '/skills/git', component: FaGitAlt },
+  { linkTo: '/skills/php', component: DiPhp },
 ];
 
 export default function SkillsPage() {

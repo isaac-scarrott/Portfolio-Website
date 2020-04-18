@@ -12,16 +12,17 @@ export async function calculateSunriseAndSunset() {
     coordinates.latitude,
     coordinates.longitude
   );
-
 }
 
-const getCoordinates = () => new Promise((resolve, reject) => {
+const getCoordinates = () =>
+  new Promise((resolve, reject) => {
     if (!navigator.geolocation) {
       return resolve(null);
     }
 
     navigator.geolocation.getCurrentPosition(
-      ({coords}) => resolve({latitude: coords.latitude, longitude: coords.longitude}),
+      ({ coords }) =>
+        resolve({ latitude: coords.latitude, longitude: coords.longitude }),
       () => resolve(null)
     );
-  })
+  });

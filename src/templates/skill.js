@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
-import { SkillsContainer, transitionLengthString } from '../components/SkillsScreen';
+import {
+  SkillsContainer,
+  transitionLengthString,
+} from '../components/SkillsScreen';
 import { LayoutWithPageContainer as Layout } from '../components/Layout';
-import styled, {keyframes, css} from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import PageContainer from '../styles/PageContainer';
-import {SkillsTitleContainer} from '../components/SkillsScreen'
+import { SkillsTitleContainer } from '../components/SkillsScreen';
 import BlogPostTile from '../components/BlogPostTile';
 
 const animation = keyframes`
@@ -25,13 +28,21 @@ const scaleDown = keyframes`
 
 export const SkillContainer = styled(SkillsContainer)`
   flex-direction: column;
-    a {
-      animation: none;
-    }
+  a {
+    animation: none;
+  }
 `;
 
 export const SkillDescription = styled.div`
-  animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
+  animation: ${props =>
+      props.open
+        ? css`
+            ${animationIn} ${transitionLengthString}
+          `
+        : css`
+            ${animation} ${transitionLengthString}
+          `}
+    forwards;
   padding: 0 10%;
   margin-top: 5%;
 `;
@@ -44,16 +55,25 @@ export const CloseButton = styled.button`
   top: 0;
   margin: 10px;
   border-radius: 50%;
-  animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
+  animation: ${props =>
+      props.open
+        ? css`
+            ${animationIn} ${transitionLengthString}
+          `
+        : css`
+            ${animation} ${transitionLengthString}
+          `}
+    forwards;
   cursor: pointer;
-  &:before, &:after {
+  &:before,
+  &:after {
     position: absolute;
     content: ' ';
     top: 5px;
     left: 23px;
     height: 40px;
     width: 5px;
-  background-color: ${props => props.theme.colours.background};
+    background-color: ${props => props.theme.colours.background};
     border-radius: 10px;
   }
   &:before {
@@ -66,7 +86,15 @@ export const CloseButton = styled.button`
 
 const SkillTitleContainer = styled(SkillsTitleContainer)`
   color: ${props => props.theme.colours.background};
-  animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${animation} ${transitionLengthString}`)} forwards;
+  animation: ${props =>
+      props.open
+        ? css`
+            ${animationIn} ${transitionLengthString}
+          `
+        : css`
+            ${animation} ${transitionLengthString}
+          `}
+    forwards;
 `;
 
 const RelatedBlogPosts = styled.div`
@@ -77,15 +105,23 @@ const RelatedBlogPosts = styled.div`
   grid-row-gap: 0px;
   padding-right: 4%;
   a div {
-    animation: ${props => (props.open ? css`${animationIn} ${transitionLengthString}` : css`${scaleDown} ${transitionLengthString}`)} forwards;
+    animation: ${props =>
+        props.open
+          ? css`
+              ${animationIn} ${transitionLengthString}
+            `
+          : css`
+              ${scaleDown} ${transitionLengthString}
+            `}
+      forwards;
     width: 100%;
   }
 `;
 
-export default function Skill({data}) {
+export default function Skill({ data }) {
   const [goingBackToPrevPage, setGoingBackToPrevPage] = useState(false);
 
-  let relatedBlogPosts = data.allMarkdownRemark.nodes.filter((blogPosts) => {
+  let relatedBlogPosts = data.allMarkdownRemark.nodes.filter(blogPosts => {
     const tagsArray = blogPosts.frontmatter.tags.split(',');
     return tagsArray.includes(data.skills.name.toLowerCase());
   });
@@ -93,7 +129,7 @@ export default function Skill({data}) {
   useEffect(() => {
     document.body.style.overflowY = 'hidden';
 
-    return (() => document.body.style.overflowY = 'auto');
+    return () => (document.body.style.overflowY = 'auto');
   }, []);
 
   useEffect(() => {

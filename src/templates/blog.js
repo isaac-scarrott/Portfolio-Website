@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { graphql } from 'gatsby';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import Layout from '../components/Layout';
 import dayjs from 'dayjs';
@@ -81,25 +81,70 @@ const ScrollProgressDivContainer = styled.div`
 
 const ScrollProgressDiv = styled.div`
   height: ${props => props.percentScrolled}%;
+  transition: ${props => props.percentScrolled / 100}s;
   width: 2px;
   background-color: ${props => props.theme.colours.text};
 `;
+
+// https://davidwalsh.name/javascript-debounce-function
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this,
+      args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
 
 export default function Blog({ data }) {
   const { markdownRemark: post } = data;
   const [percentScrolled, setPercentScrolled] = React.useState(0);
 
-  function calculateAndSetPercentScrolled() {
+  const rootElm = React.createRef();
+
+  const calculateAndSetPercentScrolled = debounce(function() {
     const htmlElement = document.documentElement;
     setPercentScrolled(
-      (htmlElement.scrollTop / (htmlElement.scrollHeight - htmlElement.clientHeight)) * 100
+      (htmlElement.scrollTop /
+        (htmlElement.scrollHeight - htmlElement.clientHeight)) *
+        100
     );
-  }
+  }, 200);
 
   useEffect(() => {
     window.addEventListener('scroll', calculateAndSetPercentScrolled);
-    return () => window.removeEventListener('scroll', calculateAndSetPercentScrolled);
-  }, [])
+
+    return () =>
+      window.removeEventListener('scroll', calculateAndSetPercentScrolled);
+  }, []);
+
+  useLayoutEffect(() => {
+    console.log(rootElm.current);
+
+    const utterances = document.createElement('script');
+
+    const utterancesConfig = {
+      src: 'https://utteranc.es/client.js',
+      repo: 'isaac-scarrott/Portfolio-Website-Comments',
+      theme: 'photon-dark',
+      label: 'comment',
+      async: true,
+      'issue-term': 'pathname',
+      crossorigin: 'anonymous',
+    };
+
+    Object.keys(utterancesConfig).forEach(configKey => {
+      utterances.setAttribute(configKey, utterancesConfig[configKey]);
+    });
+    rootElm.current.appendChild(utterances);
+  }, []);
 
   return (
     <Layout>
@@ -120,6 +165,7 @@ export default function Blog({ data }) {
           </ImageContainer>
           <BlogPostContent dangerouslySetInnerHTML={{ __html: post.html }} />
         </BlogPostContainer>
+        <div ref={rootElm} />
       </Content>
     </Layout>
   );

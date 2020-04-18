@@ -48,7 +48,7 @@ export const SkillsContainer = styled.div`
     color: ${props => props.theme.colours.primary};
   }
 
-  a {
+  button {
     animation: ${props => (props.open ? animation : animationIn)}
       ${transitionLengthString} forwards;
     transition: transform 0.2s;
@@ -93,7 +93,7 @@ export default function SkillsPage() {
       <SkillsTitleContainer open={skillOpen}>Skills</SkillsTitleContainer>
       <SkillsContainer open={skillOpen}>
         {skillsComponents.map(({ component, linkTo }, index) => (
-          <a
+          <button
             key={String(index)}
             open={skillOpen}
             onClick={() => delayedLinkToPage(linkTo)}
@@ -102,7 +102,7 @@ export default function SkillsPage() {
               size: 100,
               onClick: () => setSkillsOpen(true),
             })}
-          </a>
+          </button>
         ))}
       </SkillsContainer>
     </PageContainer>

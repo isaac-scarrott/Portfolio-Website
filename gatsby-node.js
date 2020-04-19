@@ -1,9 +1,9 @@
 const path = require('path');
 
 async function createBlogPostPages(graphql, createPage) {
-  const postTemplate = path.resolve('src/templates/blog.js');
+  const postTemplate = path.resolve('src/templates/Blog.js');
 
-  const {errors, data} = await graphql(`
+  const { errors, data } = await graphql(`
     {
       allMarkdownRemark {
         edges {
@@ -32,9 +32,9 @@ async function createBlogPostPages(graphql, createPage) {
 }
 
 async function createSkillsPages(graphql, createPage) {
-  const skillTemplate = path.resolve('src/templates/skill.js');
+  const skillTemplate = path.resolve('src/templates/Skill.js');
 
-  const {errors, data} = await graphql(`
+  const { errors, data } = await graphql(`
     {
       allSkills {
         edges {
@@ -63,5 +63,5 @@ exports.createPages = async ({ boundActionCreators, graphql }) => {
 
   await createBlogPostPages(graphql, createPage);
 
-  await createSkillsPages(graphql, createPage)
+  await createSkillsPages(graphql, createPage);
 };

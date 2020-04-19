@@ -60,6 +60,11 @@ const BlogPostImage = styled.img`
 const BlogPostContent = styled.div`
   width: 70%;
   line-height: 1.7;
+
+  a {
+    color: ${props => props.theme.colours.link};
+  }
+
   @media ${device.mobile} {
     width: 100%;
   }

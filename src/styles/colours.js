@@ -5,6 +5,7 @@ export const lightThemeColours = {
     secondary: '#BDD5EA', // UCLA Blue
     background: '#F7F7FF', //Titan White
     text: '#000000', // Black
+    link: '#0000ff', // blue
 
     success: '#75b79e', // Green
     danger: '#ff2e44', // Red
@@ -28,6 +29,7 @@ export const darkThemeColours = {
     secondary: '#495867', /// Independence
     background: '#404040', // Tundora
     text: '#F7F7FF', // Titan White
+    link: '#0088ff',
 
     success: '#75b79e', // Green
     danger: '#ff2e44', // Red

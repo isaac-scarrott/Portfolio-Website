@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import PageContainer from '../styles/PageContainer';
@@ -39,15 +39,20 @@ export const BlogEntriesContainer = styled.div`
 `;
 
 const comingSoonData = {
-  node : {
+  node: {
     timeToRead: '',
-    frontmatter : {
+    frontmatter: {
       title: 'Coming Soon',
       path: '/coming-soon',
-      image: 'https://www.seedprod.com/wp-content/uploads/2019/09/Best-coming-soon-pages.jpg',
-      createdTime: ''
-    }
-  }
+      featuredImage: {
+        childImageSharp: {
+          fluid:
+            'https://www.seedprod.com/wp-content/uploads/2019/09/Best-coming-soon-pages.jpg',
+        },
+      },
+      createdTime: '',
+    },
+  },
 };
 
 function getBlogPostsWithComingSoonFillers(blogPosts) {
@@ -69,7 +74,13 @@ export default function BlogPage() {
             timeToRead
             frontmatter {
               title
-              image
+              featuredImage {
+                childImageSharp {
+                  fluid(maxWidth: 800) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
               createdTime
               path
             }
@@ -79,7 +90,9 @@ export default function BlogPage() {
     }
   `);
 
-  const blogPostWithComingSoon = getBlogPostsWithComingSoonFillers(data.allMarkdownRemark.edges);
+  const blogPostWithComingSoon = getBlogPostsWithComingSoonFillers(
+    data.allMarkdownRemark.edges
+  );
 
   return (
     <BlogPageContainer>
@@ -89,7 +102,7 @@ export default function BlogPage() {
           return (
             <BlogPostTile
               path={node.frontmatter.path}
-              image={node.frontmatter.image}
+              image={node.frontmatter.featuredImage.childImageSharp.fluid}
               title={node.frontmatter.title}
               timeToRead={node.timeToRead}
               date={node.frontmatter.createdTime}

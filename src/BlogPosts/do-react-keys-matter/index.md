@@ -2,7 +2,7 @@
 path: '/do-react-keys-matter'
 title: 'Why Shouldnt You Use Index For A React Key Prop ... And Why You Shouldnt Care'
 createdTime: '2020-04-04T15:45:36.496Z'
-image: 'https://hackernoon.com/hn-images/1*sby1Jwafc8jkPSbCfAgTnw.jpeg'
+featuredImage: './thumbnail.png'
 tags: 'reactjs,react,javascript,keys'
 ---
 

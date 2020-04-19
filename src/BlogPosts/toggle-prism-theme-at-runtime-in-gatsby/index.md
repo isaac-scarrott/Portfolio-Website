@@ -2,7 +2,7 @@
 path: '/toggle-prism-theme-at-runtime-in-gatsby'
 title: 'Toggle PrismJs Themes At Runtime in Gatsby'
 createdTime: '2020-04-19T20:14:06.339Z'
-image: 'https://getpublii.com/docs/media/posts/38/prism-js-static-website.png'
+featuredImage: './thumbnail.png'
 tags: 'reactjs,react,javascript,prism,gatsby,theme'
 ---
 
@@ -19,7 +19,7 @@ tags: 'reactjs,react,javascript,prism,gatsby,theme'
 <p>Once the files have been created, create a new global style component similar to as follows</p>
 
 ```javascript
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const lightTheme = createGlobalStyle``;
 
@@ -29,10 +29,7 @@ export const darkTheme = createGlobalStyle``;
 <p>Simply paste the raw css inside the back-ticks. You can see a <a href='https://github.com/isaac-scarrott/Portfolio-Website/blob/master/src/styles/prism-xonokai.js'>full example</a> of how I did it on my repo. Now go into the component where the state is toggled to toggle the theme. This can be anywhere in your project as it is going to be injected as a global style. Import the two themes in a create a function that returns a the correct component based on the state, similar to as follows.</p>
 
 ```javascript
-import {
-  LightModePrismTheme,
-  DarkModePrismTheme
-} from '../styles/prismThemes';
+import { LightModePrismTheme, DarkModePrismTheme } from '../styles/prismThemes';
 
 function GetPrismTheme(isDarkMode) {
   if (isDarkMode) {

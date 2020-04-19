@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import dayjs from 'dayjs';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 export const BlogEntryContainer = styled.div`
   margin: 5%;
@@ -46,22 +47,25 @@ export const BlogEntryDate = styled.p`
   float: right;
 `;
 
-export default function BlogPostTile({path, image, title, timeToRead, date = null}) {
-  const formattedDate = date
-    ? dayjs(date).format('MMM YYYY')
-    : '';
+export default function BlogPostTile({
+  path,
+  image,
+  title,
+  timeToRead,
+  date = null,
+}) {
+  const formattedDate = date ? dayjs(date).format('MMM YYYY') : '';
 
-  const timeToReadString = timeToRead
-    ? `${timeToRead} min read`
-    : '';
+  const timeToReadString = timeToRead ? `${timeToRead} min read` : '';
 
   return (
     <Link to={path} key={path}>
       <BlogEntryContainer>
-        <img
-          src={image}
-          alt={title + ' image'}
-        />
+        {typeof image === 'string' ? (
+          <img src={image} alt={title + ' image'} />
+        ) : (
+          <Img fluid={image} alt={title + ' image'} />
+        )}
         <h3>{title}</h3>
         <BlogEntryTimeToRead>{timeToReadString}</BlogEntryTimeToRead>
         <BlogEntryDate>{formattedDate}</BlogEntryDate>

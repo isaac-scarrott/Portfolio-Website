@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect } from 'react';
 import { graphql } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
+import Img from 'gatsby-image';
 
 import Layout from '../components/Layout';
 import dayjs from 'dayjs';
@@ -23,6 +24,7 @@ const BlogPostContainer = styled.div`
   @media ${device.mobile} {
     padding: 0 5%;
   }
+  margin-top: 65px;
 `;
 
 const BlogPostTitle = styled.h1`
@@ -51,7 +53,7 @@ const BlogPostReadTime = styled.h1`
 const ImageContainer = styled.div`
   width: 100%;
 `;
-const BlogPostImage = styled.img`
+const BlogPostImage = styled(Img)`
   box-shadow: 0px 30px 48px -18px rgba(0, 0, 0, 0.33);
   margin: 50px 0;
   width: 100%;
@@ -166,7 +168,9 @@ export default function Blog({ data }) {
             <BlogPostReadTime>{`${post.timeToRead} min read`}</BlogPostReadTime>
           </BlogInfo>
           <ImageContainer>
-            <BlogPostImage src={post.frontmatter.image} />
+            <BlogPostImage
+              fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
+            />
           </ImageContainer>
           <BlogPostContent dangerouslySetInnerHTML={{ __html: post.html }} />
         </BlogPostContainer>
@@ -183,7 +187,13 @@ export const postQuery = graphql`
       timeToRead
       frontmatter {
         title
-        image
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 2560) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         createdTime
       }
     }

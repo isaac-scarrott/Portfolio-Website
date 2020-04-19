@@ -157,7 +157,10 @@ export default function Skill({ data }) {
               return (
                 <BlogPostTile
                   path={relatedBlogPost.frontmatter.path}
-                  image={relatedBlogPost.frontmatter.image}
+                  image={
+                    relatedBlogPost.frontmatter.featuredImage.childImageSharp
+                      .fluid
+                  }
                   title={relatedBlogPost.frontmatter.title}
                   timeToRead={relatedBlogPost.timeToRead}
                   date={relatedBlogPost.frontmatter.createdTime}
@@ -183,7 +186,13 @@ export const postQuery = graphql`
         timeToRead
         frontmatter {
           title
-          image
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           createdTime
           path
           tags

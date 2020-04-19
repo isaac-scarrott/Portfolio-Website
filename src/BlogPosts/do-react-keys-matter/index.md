@@ -3,7 +3,7 @@ path: '/do-react-keys-matter'
 title: 'Why Shouldnt You Use Index For A React Key Prop ... And Why You Shouldnt Care'
 createdTime: '2020-04-04T15:45:36.496Z'
 image: 'https://hackernoon.com/hn-images/1*sby1Jwafc8jkPSbCfAgTnw.jpeg'
-tags: 'reactjs,javascript,keys'
+tags: 'reactjs,react,javascript,keys'
 ---
 
 <p><b>IMPORTANT DISCLAIMER:</b> I absolutely, 100%, without a doubt believe that you should use  unique, consistent keys when rendering a list of components. Now that's out the way I am going to attempt to justify my click baity title.</p>

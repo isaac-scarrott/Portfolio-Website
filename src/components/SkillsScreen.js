@@ -62,6 +62,7 @@ export const SkillsContainer = styled.div`
     }
 
     svg {
+      fill: white;
       transition: filter 0.15s;
       filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
     }

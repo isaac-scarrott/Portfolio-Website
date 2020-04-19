@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { FaHome } from 'react-icons/fa';
 
 import LinksIcons from './LinksBar';
 import { navigate } from 'gatsby';
@@ -30,16 +31,12 @@ const ToggleButtonsContainer = styled.div`
     text-align: center;
     cursor: pointer;
     color: ${props => props.theme.colours.text};
-
+    svg {
+      fill: white !important;
+    }
     &:first-of-type {
       &:before {
         content: ${props => (props.isDarkMode ? '"Dark"' : '"Light"')};
-      }
-    }
-
-    &:last-of-type {
-      &:before {
-        content: 'Home';
       }
     }
   }
@@ -87,7 +84,10 @@ export default function Nav({ isDarkMode, toggleIsDarkMode }) {
       <LinksIcons />
       <ToggleButtonsContainer isDarkMode={isDarkMode}>
         <button onClick={() => toggleIsDarkMode()} />
-        <button onClick={() => navigate('/')} />
+        <button onClick={() => navigate('/')}>
+          {' '}
+          <FaHome size={30} />
+        </button>
       </ToggleButtonsContainer>
     </NavBar>
   );

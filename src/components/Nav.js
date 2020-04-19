@@ -46,7 +46,7 @@ export default function Nav({ isDarkMode, toggleIsDarkMode }) {
   const [previousScrollPosition, setPreviousScrollPosition] = useState(
     typeof window !== 'undefined' ? window.pageYOffset : 0
   );
-  const [navVisible, setNavVisible] = useState(true);
+  const [navVisible, setNavVisible] = useState(false);
 
   useEffect(() => {
     if (

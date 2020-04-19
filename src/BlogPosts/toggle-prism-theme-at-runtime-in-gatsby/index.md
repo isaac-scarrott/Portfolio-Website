@@ -6,7 +6,7 @@ image: 'https://getpublii.com/docs/media/posts/38/prism-js-static-website.png'
 tags: 'reactjs,react,javascript,prism,gatsby,theme'
 ---
 
-<p>Gatsby-remark-Prismajs is the most popular package to add syntax highlighting to code blocks in markdown files and is the method that I use to embed code blocks in my blog posts. Like many websites I have a dark mode and a light mode that can be toggled on or off at the users discretion. When researching how to toggled this at runtime I couldn't find an answer on how to toggle the theme at runtime in Gatsby. With the only thread I could find was this <a href='https://github.com/gatsbyjs/gatsby/issues/19155'>Github issue on the Gatsby repository</a>.</p>
+<p>Gatsby-remark-Prismajs is the most popular Gatsby package to add syntax highlighting to code blocks in markdown files and is the method that I use to embed code blocks in my blog posts. Like many websites I have a dark mode and a light mode that can be toggled on or off at the users discretion. When researching how to toggled this at runtime I couldn't find an answer on how to toggle the theme at runtime in Gatsby. With the only thread I could find was this <a href='https://github.com/gatsbyjs/gatsby/issues/19155'>Github issue on the Gatsby repository</a>.</p>
 
 <p>So in this blog post I am going to show you how I implemented a toggle-able Prisma theme at runtime in Gatsby using styled components and also another method that you could implement it without styled components.</p>
 

@@ -46,7 +46,12 @@ export default function Nav({ isDarkMode, toggleIsDarkMode }) {
   const [previousScrollPosition, setPreviousScrollPosition] = useState(
     typeof window !== 'undefined' ? window.pageYOffset : 0
   );
-  const [navVisible, setNavVisible] = useState(false);
+  const [navVisible, setNavVisible] = useState(
+    !(
+      typeof window !== 'undefined' &&
+      window.location.pathname.includes('/skills/')
+    )
+  );
 
   useEffect(() => {
     if (

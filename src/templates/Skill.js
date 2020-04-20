@@ -181,7 +181,9 @@ export const postQuery = graphql`
       description
     }
 
-    allMarkdownRemark {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___createdTime], order: DESC }
+    ) {
       nodes {
         timeToRead
         frontmatter {

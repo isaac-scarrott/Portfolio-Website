@@ -68,7 +68,9 @@ function getBlogPostsWithComingSoonFillers(blogPosts) {
 export default function BlogPage() {
   const data = useStaticQuery(graphql`
     query getAllBlogPostInfo {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        sort: { fields: [frontmatter___createdTime], order: DESC }
+      ) {
         edges {
           node {
             timeToRead

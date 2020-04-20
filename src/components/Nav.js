@@ -17,6 +17,8 @@ const NavBar = styled.nav`
   grid-template-rows: 1fr;
   padding: 10px 0;
   transition: 0.2s;
+  box-shadow: 0px 6px 26px 3px rgba(0, 0, 0, 0.4);
+  color: white;
 `;
 
 const NameContainer = styled.div`
@@ -30,7 +32,7 @@ const ToggleButtonsContainer = styled.div`
   & button {
     text-align: center;
     cursor: pointer;
-    color: ${props => props.theme.colours.text};
+    color: white;
     svg {
       fill: white !important;
     }

@@ -13,7 +13,7 @@ export const LinksContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  color: ${props => props.theme.colours.secondary};
+  color: ${props => props.theme.colours.offWhite};
 
   a {
     transition: transform 0.2s;

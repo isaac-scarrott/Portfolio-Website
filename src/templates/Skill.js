@@ -73,7 +73,7 @@ export const CloseButton = styled.button`
     left: 23px;
     height: 40px;
     width: 5px;
-    background-color: ${props => props.theme.colours.background};
+    background-color: ${props => props.theme.colours.offWhite};
     border-radius: 10px;
   }
   &:before {
@@ -85,7 +85,6 @@ export const CloseButton = styled.button`
 `;
 
 const SkillTitleContainer = styled(SkillsTitleContainer)`
-  color: ${props => props.theme.colours.background};
   animation: ${props =>
       props.open
         ? css`

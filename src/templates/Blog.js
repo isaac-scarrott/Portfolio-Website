@@ -77,7 +77,7 @@ const ScrollProgressDivContainer = styled.div`
   display: absolute;
   height: 500px;
   width: 2px;
-  background-color: ${props => props.theme.colours.gray};
+  background-color: ${props => props.theme.colours.darkGray};
   left: 10%;
   top: 50%;
   transform: translateY(-50%);

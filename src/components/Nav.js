@@ -10,11 +10,11 @@ const Circle = styled.div`
   border-radius: 100%;
   width: 30px;
   height: 30px;
+  cursor: pointer;
   background: ${props =>
     props.isDarkMode
       ? `linear-gradient(40deg, white, white 70%)`
       : `linear-gradient(40deg, #fada5e, #f9a602 70%)`};
-  margin: auto;
 
   div:first-of-type {
     position: absolute;
@@ -52,8 +52,10 @@ const NameContainer = styled.div`
 const ToggleButtonsContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 
   & button {
+    display: flex;
     text-align: center;
     cursor: pointer;
     color: white;

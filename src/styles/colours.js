@@ -25,7 +25,7 @@ export const darkThemeColours = {
   type: 'dark',
   colours: {
     ...mainColours,
-    background: '#404040', // Tundora
+    background: '#171717', // Tundora
     text: '#F7F7FF', // Titan White
     link: '#0088ff',
   },

@@ -5,6 +5,30 @@ import { FaHome } from 'react-icons/fa';
 import LinksIcons from './LinksBar';
 import { navigate } from 'gatsby';
 
+const Circle = styled.div`
+  position: relative;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  background: ${props =>
+    props.isDarkMode
+      ? `linear-gradient(40deg, white, white 70%)`
+      : `linear-gradient(40deg, #fada5e, #f9a602 70%)`};
+  margin: auto;
+
+  div:first-of-type {
+    position: absolute;
+    border-radius: 100%;
+    right: 0;
+    width: 23px;
+    height: 23px;
+    background: ${props => props.theme.colours.primary};
+    transform: scale(${props => (props.isDarkMode ? 1 : 0)});
+    transform-origin: top right;
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+`;
+
 const NavBar = styled.nav`
   z-index: 5000;
   position: fixed;
@@ -35,11 +59,6 @@ const ToggleButtonsContainer = styled.div`
     color: white;
     svg {
       fill: white !important;
-    }
-    &:first-of-type {
-      &:before {
-        content: ${props => (props.isDarkMode ? '"Dark"' : '"Light"')};
-      }
     }
   }
 `;
@@ -90,7 +109,9 @@ export default function Nav({ isDarkMode, toggleIsDarkMode }) {
       </NameContainer>
       <LinksIcons />
       <ToggleButtonsContainer isDarkMode={isDarkMode}>
-        <button onClick={() => toggleIsDarkMode()} />
+        <Circle isDarkMode={isDarkMode} onClick={toggleIsDarkMode}>
+          <div />
+        </Circle>
         <button onClick={() => navigate('/')}>
           {' '}
           <FaHome size={30} />

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   html, body, #root {
@@ -8,6 +8,7 @@ export default createGlobalStyle`
   }
 
   body {
+    transition: background-color 0.2s;
     color: ${props => props.theme.colours.text};
     -webkit-tap-highlight-color: transparent;
     line-height: 1.2;

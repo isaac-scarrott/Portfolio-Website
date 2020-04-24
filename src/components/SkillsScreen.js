@@ -97,9 +97,9 @@ export default function SkillsPage() {
     <PageContainer ref={pageContainerRef}>
       <SkillsTitleContainer open={skillOpen}>Skills</SkillsTitleContainer>
       <SkillsContainer open={skillOpen}>
-        {skillsComponents.map(({ component, linkTo }, index) => (
+        {skillsComponents.map(({ component, linkTo }) => (
           <button
-            key={String(index)}
+            key={linkTo}
             open={skillOpen}
             onClick={() => delayedLinkToPage(linkTo)}
           >

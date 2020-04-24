@@ -81,6 +81,21 @@ export default function Nav({ isDarkMode, toggleIsDarkMode }) {
     )
   );
 
+  function onScroll() {
+    const currentScrollPos = window.pageYOffset;
+
+    if (
+      window.location.pathname === '/' &&
+      window.innerHeight / 4 > currentScrollPos
+    ) {
+      return;
+    }
+    setPreviousScrollPosition(prevPos => {
+      setNavVisible(prevPos > currentScrollPos);
+      setPreviousScrollPosition(window.pageYOffset);
+    });
+  }
+
   useEffect(() => {
     if (
       typeof window !== 'undefined' &&
@@ -90,23 +105,9 @@ export default function Nav({ isDarkMode, toggleIsDarkMode }) {
 
       return;
     }
-    window.addEventListener('scroll', () => {
-      const currentScrollPos = window.pageYOffset;
+    window.addEventListener('scroll', onScroll);
 
-      if (
-        window.location.pathname === '/' &&
-        window.innerHeight / 4 > currentScrollPos
-      ) {
-        return;
-      }
-      setPreviousScrollPosition(prevPos => {
-        setNavVisible(prevPos > currentScrollPos);
-        setPreviousScrollPosition(window.pageYOffset);
-      });
-    });
-
-    return () =>
-      window.removeEventListener('scroll', setPreviousScrollPosition);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (

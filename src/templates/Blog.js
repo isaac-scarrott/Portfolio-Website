@@ -130,11 +130,9 @@ export default function Blog({ data }) {
 
     return () =>
       window.removeEventListener('scroll', calculateAndSetPercentScrolled);
-  }, []);
+  }, [calculateAndSetPercentScrolled]);
 
   useLayoutEffect(() => {
-    console.log(rootElm.current);
-
     const utterances = document.createElement('script');
 
     const utterancesConfig = {
@@ -151,7 +149,7 @@ export default function Blog({ data }) {
       utterances.setAttribute(configKey, utterancesConfig[configKey]);
     });
     rootElm.current.appendChild(utterances);
-  }, []);
+  }, [rootElm]);
 
   return (
     <Layout>

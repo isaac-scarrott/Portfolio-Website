@@ -66,7 +66,7 @@ const ToggleButtonsContainer = styled.div`
 `;
 
 export default function Nav({ isDarkMode, toggleIsDarkMode }) {
-  const [previousScrollPosition, setPreviousScrollPosition] = useState(
+  const [, setPreviousScrollPosition] = useState(
     typeof window !== 'undefined' ? window.pageYOffset : 0
   );
   const [navVisible, setNavVisible] = useState(

@@ -104,6 +104,11 @@ export default function BlogPage() {
         {blogPostWithComingSoon.map(({ node }, index) => {
           return (
             <BlogPostTile
+              key={
+                node.frontmatter.title === 'Coming Soon'
+                  ? index
+                  : node.frontmatter.path
+              }
               path={node.frontmatter.path}
               image={node.frontmatter.featuredImage.childImageSharp.fluid}
               title={node.frontmatter.title}

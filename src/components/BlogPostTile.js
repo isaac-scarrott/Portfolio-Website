@@ -59,7 +59,7 @@ export default function BlogPostTile({
   const timeToReadString = timeToRead ? `${timeToRead} min read` : '';
 
   return (
-    <Link to={path} key={path}>
+    <Link to={path}>
       <BlogEntryContainer>
         {typeof image === 'string' ? (
           <img src={image} alt={title + ' image'} />

@@ -1,13 +1,15 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+const siteMetadata = {
+  title: `Isaac Scarrott`,
+  siteUrl: `https://www.isaacscarrott.co.uk`,
+  description: `A website and blog of a software developer named Isaac Scarrott`,
+  image: './static/default-site-image.png',
+  siteLanguage: 'en-GB',
+  siteLocale: 'en_gb',
+  authorName: 'Isaac Scarrott',
+};
 
 module.exports = {
-  siteMetadata: {
-    siteUrl: `https://isaacscarrott.co.uk/`,
-  },
+  siteMetadata,
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,

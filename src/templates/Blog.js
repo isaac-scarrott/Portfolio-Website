@@ -146,7 +146,7 @@ export default function Blog({ data }) {
     };
 
     Object.keys(utterancesConfig).forEach(configKey => {
-      utterances.setAttribute(configKey, utterancesConfig[configKey]);
+    utterances.setAttribute(configKey, utterancesConfig[configKey]);
     });
     rootElm.current.appendChild(utterances);
   }, [rootElm]);

@@ -53,6 +53,7 @@ const ToggleButtonsContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-left: 50%;
 
   & button {
     display: flex;

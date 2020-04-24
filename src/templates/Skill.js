@@ -9,6 +9,7 @@ import styled, { keyframes, css } from 'styled-components';
 import PageContainer from '../styles/PageContainer';
 import { SkillsTitleContainer } from '../components/SkillsScreen';
 import BlogPostTile from '../components/BlogPostTile';
+import device from '../styles/mediaQueryStuff';
 
 const animation = keyframes`
   from { opacity: 1; }
@@ -81,6 +82,12 @@ export const CloseButton = styled.button`
   }
   &:after {
     transform: rotate(-45deg);
+  }
+  @media ${device.mobile} {
+    &:before,
+    &:after {
+      background-color: ${props => props.theme.colours.primary};
+    }
   }
 `;
 

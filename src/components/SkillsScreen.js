@@ -43,9 +43,13 @@ export const SkillsContainer = styled.div`
   transition: ${transitionLengthString} ease;
 
   @media ${device.mobile} {
+    height: 80%;
     flex-direction: column;
     background-color: transparent;
     color: ${props => props.theme.colours.primary};
+    button svg {
+      fill: ${props => props.theme.colours.primary}!important;
+    }
   }
 
   button {

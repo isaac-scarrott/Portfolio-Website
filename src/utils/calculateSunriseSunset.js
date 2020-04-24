@@ -4,7 +4,7 @@ export async function calculateSunriseAndSunset() {
   const coordinates = await getCoordinates();
 
   if (!coordinates) {
-    return;
+    return { sunrise: null, sunset: null };
   }
 
   return SunCalc.getTimes(
@@ -17,12 +17,12 @@ export async function calculateSunriseAndSunset() {
 const getCoordinates = () =>
   new Promise((resolve, reject) => {
     if (!navigator.geolocation) {
-      return resolve(null);
+      return resolve({ sunrise: null, sunset: null });
     }
 
     navigator.geolocation.getCurrentPosition(
       ({ coords }) =>
         resolve({ latitude: coords.latitude, longitude: coords.longitude }),
-      () => resolve(null)
+      () => resolve({ sunrise: null, sunset: null })
     );
   });

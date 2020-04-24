@@ -69,7 +69,8 @@ function useDarkMode() {
   }
 
   useEffect(() => {
-    calculateSunriseAndSunset().then(({ sunrise, sunset }) => {
+    async function setDarkModeIfNight() {
+      const { sunrise, sunset } = await calculateSunriseAndSunset();
       const dateTimeNow = new Date();
       if (
         dateTimeNow <= dayjs(sunrise).add(1, 'day') &&
@@ -78,7 +79,8 @@ function useDarkMode() {
         // Updates state but not localStorage
         setIsDarkMode(true);
       }
-    });
+    }
+    setDarkModeIfNight();
   }, []);
 
   return [isDarkMode, toggleIsDarkMode];

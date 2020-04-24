@@ -4,6 +4,7 @@ import { FaHome } from 'react-icons/fa';
 
 import LinksIcons from './LinksBar';
 import { navigate } from 'gatsby';
+import device from '../styles/mediaQueryStuff';
 
 const Circle = styled.div`
   position: relative;
@@ -54,6 +55,9 @@ const ToggleButtonsContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-left: 50%;
+  @media ${device.mobile} {
+    margin-left: 0;
+  }
 
   & button {
     display: flex;

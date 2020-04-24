@@ -32,6 +32,7 @@ export const BlogEntriesContainer = styled.div`
   flex-grow: 1;
   width: 80%;
   @media ${device.mobile} {
+    height: 80%;
     grid-template-columns: 100%;
     grid-template-rows: auto;
     left: 5%;

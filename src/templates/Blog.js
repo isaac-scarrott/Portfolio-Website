@@ -133,6 +133,10 @@ export default function Blog({ data }) {
   }, [calculateAndSetPercentScrolled]);
 
   useLayoutEffect(() => {
+    if (rootElm.current.firstChild) {
+      return;
+    }
+
     const utterances = document.createElement('script');
 
     const utterancesConfig = {
@@ -146,8 +150,9 @@ export default function Blog({ data }) {
     };
 
     Object.keys(utterancesConfig).forEach(configKey => {
-    utterances.setAttribute(configKey, utterancesConfig[configKey]);
+      utterances.setAttribute(configKey, utterancesConfig[configKey]);
     });
+
     rootElm.current.appendChild(utterances);
   }, [rootElm]);
 

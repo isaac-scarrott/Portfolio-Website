@@ -2,7 +2,7 @@ const siteMetadata = {
   title: `Isaac Scarrott`,
   siteUrl: `https://www.isaacscarrott.co.uk`,
   description: `A website and blog of a software developer named Isaac Scarrott`,
-  image: './static/default-site-image.png',
+  image: 'default-site-image.png',
   siteLanguage: 'en-GB',
   siteLocale: 'en_gb',
   authorName: 'Isaac Scarrott',

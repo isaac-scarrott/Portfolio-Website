@@ -1,5 +1,5 @@
 ---
-path: '/do-react-keys-matter'
+path: '/blog/do-react-keys-matter'
 title: 'Why Shouldnt You Use Index For A React Key Prop ... And Why You Shouldnt Care'
 createdTime: '2020-04-04T15:45:36.496Z'
 featuredImage: './thumbnail.png'

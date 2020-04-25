@@ -1,5 +1,5 @@
 {
   "path": "/skills/git",
   "name": "Git",
-  "description": "Git is my prefered code version control system"
+  "description": "Git is my preferred code version control system. Git is essential to not only version control my code, but to allow a nice flow of code from the dev phase, all the way through to deployment."
 }

@@ -1,5 +1,5 @@
 ---
-path: '/toggle-prism-theme-at-runtime-in-gatsby'
+path: '/blog/toggle-prism-theme-at-runtime-in-gatsby'
 title: 'Toggle PrismJs Themes At Runtime in Gatsby'
 createdTime: '2020-04-19T20:14:06.339Z'
 featuredImage: './thumbnail.png'

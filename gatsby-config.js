@@ -18,6 +18,12 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-141736194-1',
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

@@ -1,5 +1,3 @@
-require('prism-themes/themes/prism-xonokai.css');
-
 const React = require('react');
 const Layout = require('./src/components/layout').default;
 

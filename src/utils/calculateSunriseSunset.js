@@ -2,7 +2,7 @@ import SunCalc from 'suncalc';
 
 export async function calculateSunriseAndSunset() {
   const coordinates = await getCoordinates();
-
+  console.log(coordinates);
   if (!coordinates) {
     return { sunrise: null, sunset: null };
   }
@@ -14,15 +14,16 @@ export async function calculateSunriseAndSunset() {
   );
 }
 
-const getCoordinates = () =>
-  new Promise((resolve, reject) => {
-    if (!navigator.geolocation) {
-      return resolve({ sunrise: null, sunset: null });
-    }
+const getCoordinates = async () => {
+  try {
+    const response = await fetch('https://api.ipgeolocationapi.com/geolocate', {
+      mode: 'cors',
+    });
+    const geo = await response.json();
+    debugger;
 
-    navigator.geolocation.getCurrentPosition(
-      ({ coords }) =>
-        resolve({ latitude: coords.latitude, longitude: coords.longitude }),
-      () => resolve({ sunrise: null, sunset: null })
-    );
-  });
+    return { latitude: geo.latitude, longitude: geo.longitude };
+  } catch (error) {
+    console.log(error);
+  }
+};

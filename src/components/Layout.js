@@ -37,16 +37,8 @@ export function LayoutWithPageContainer({ children }) {
   );
 }
 
-function getIsDarkModeStored() {
-  if (typeof localStorage === 'undefined') {
-    return false;
-  }
-
-  return localStorage.getItem('isDarkMode') === 'true' ? true : false;
-}
-
-function useDarkMode() {
-  const [isDarkMode, setIsDarkMode] = useState(getIsDarkModeStored());
+function useDarkMode(darkModeSessionStorage) {
+  const [isDarkMode, setIsDarkMode] = useState(darkModeSessionStorage);
 
   function toggleIsDarkMode() {
     setIsDarkMode(oldIsDarkMode => {
@@ -73,11 +65,17 @@ function useDarkMode() {
   return [isDarkMode, toggleIsDarkMode];
 }
 
-export default function Layout({ children }) {
-  const [isDarkMode, toggleIsDarkMode] = useDarkMode();
+export default function Layout({ children, darkModeSessionStorage }) {
+  const [isDarkMode, toggleIsDarkMode] = useDarkMode(darkModeSessionStorage);
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkThemeColours : lightThemeColours}>
+    <ThemeProvider
+      theme={
+        darkModeSessionStorage || isDarkMode
+          ? darkThemeColours
+          : lightThemeColours
+      }
+    >
       <HelmetWrapper />
       <GlobalStyles isDarkMode={isDarkMode} />
 

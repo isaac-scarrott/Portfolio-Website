@@ -101,7 +101,7 @@ export default function BlogPage() {
     <BlogPageContainer>
       <h1>Blog</h1>
       <BlogEntriesContainer>
-        {/* Take out index when fill up all coming soon spaces */}
+        {/* Take out index when fill up all coming es */}
         {blogPostWithComingSoon.map(({ node }, index) => {
           return (
             <BlogPostTile

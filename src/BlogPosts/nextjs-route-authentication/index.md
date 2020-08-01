@@ -42,7 +42,7 @@ tags: 'javascript,nextjs,auth'
   <a href="https://www.npmjs.com/package/graphql-request">graphql-request</a>
   for the data fetching. However you can use any node compatible fetching
   library (I&#x27;ll provide examples for
-  <a href="https://www.axios.com/">Axios</a> and
+  <a href="https://www.npmjs.com/package/axios">Axios</a> and
   <a href="https://www.npmjs.com/package/node-fetch">node-fetch</a>).
 </p>
 
@@ -54,7 +54,7 @@ tags: 'javascript,nextjs,auth'
 
 ```javascript
 // some-protected-route.js
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async context => {
   // code incoming...
 };
 ```
@@ -76,7 +76,7 @@ export const getServerSideProps = async (context) => {
 
 ```javascript
 // some-protected-route.js
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async context => {
   // get the cookies from the headers in the request object
   const reqCookies = context.req.headers && context.req.headers.cookie;
 };
@@ -92,7 +92,7 @@ export const getServerSideProps = async (context) => {
 
 ```javascript
 // some-protected-route.js
-export const getServerSideProps = async (context) => {
+export const getServerSideProps = async context => {
   const reqCookies = context.req.headers && context.req.headers.cookie;
 
   // The only way to set headers in graphql-request is by creating a GraphQLClient Class

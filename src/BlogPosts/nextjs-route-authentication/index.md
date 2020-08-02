@@ -111,7 +111,7 @@ export const getServerSideProps = async context => {
 
 ```javascript
 // some-protected-route.js
-export const getServerSideProps = async (context) =&gt; {
+export const getServerSideProps = async context => {
   const reqCookies = context.req.headers &amp;&amp; context.req.headers.cookie
 
   // send the request with the cookies
@@ -125,7 +125,7 @@ export const getServerSideProps = async (context) =&gt; {
 
 ```javascript
 // some-protected-route.js
-export const getServerSideProps = async (context) =&gt; {
+export const getServerSideProps = async context => {
   const reqCookies = context.req.headers &amp;&amp; context.req.headers.cookie
 
   // send the request with the cookies
@@ -143,7 +143,7 @@ export const getServerSideProps = async (context) =&gt; {
 
 ```javascript
 // some-protected-route.js
-export const getServerSideProps = async (context) =&gt; {
+export const getServerSideProps = async context => {
   try {
     const reqCookies = context.req.headers &amp;&amp; context.req.headers.cookie
 
@@ -158,7 +158,7 @@ export const getServerSideProps = async (context) =&gt; {
     }
   } catch {
     // Redirect to the login page
-    context.res.writeHead(303, { Location: &#x27;/login&#x27; })
+    context.res.writeHead(303, { Location: '/login' })
     context.res.end()
 
    // return no initial props
